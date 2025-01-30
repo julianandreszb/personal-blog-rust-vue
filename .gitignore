@@ -3,3 +3,4 @@
 .env
 /migration/target
 /entity/target
+.cargo/config.toml
