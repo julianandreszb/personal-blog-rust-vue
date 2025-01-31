@@ -81,7 +81,7 @@ impl MigrationTrait for Migration {
 }
 
 #[derive(DeriveIden)]
-enum Post {
+pub(crate) enum Post {
     Table,
     Id,
     Title,

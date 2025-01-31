@@ -49,7 +49,7 @@ impl MigrationTrait for Migration {
 }
 
 #[derive(DeriveIden)]
-enum Category {
+pub(crate) enum Category {
     Table,
     Id,
     Name,
