@@ -1,2 +1,2 @@
 [env]
-DATABASE_URL="mysql://username:password@host:port/database_name"
+DATABASE_URL="protocol://username:password@host:port/database_name"
