@@ -14,3 +14,10 @@ sea-orm = { version = "1.1.0", features = [ "sqlx-mysql", "runtime-tokio-native-
 entity = { path = "entity" }
 migration = { path = "migration" }
 log = "0.4.25"
+
+[[bin]]
+name = "migrate"
+path = "src/bin/migrate.rs"
+
+[package.metadata.scripts]
+migrate = "cargo run --bin migrate"
