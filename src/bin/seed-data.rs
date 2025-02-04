@@ -78,8 +78,8 @@ async fn create_post(transaction: &sea_orm::DatabaseTransaction) -> Result<(), s
     };
 
     let language = match *["es", "en"].choose(&mut rng).unwrap() {
-        "es" => Some(Language::English),
-        "en" => Some(Language::Spanish),
+        "es" => Some(Language::En),
+        "en" => Some(Language::Es),
         _ => None,
     };
 

@@ -18,5 +18,6 @@ features = [
     # View the list of supported features at https://www.sea-ql.org/SeaORM/docs/install-and-config/database-and-async-runtime.
     # e.g.
     "sqlx-mysql",
-    "runtime-tokio-native-tls"
+    "runtime-tokio-native-tls",
+    "with-json",
 ]

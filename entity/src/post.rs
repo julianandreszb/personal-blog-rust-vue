@@ -4,8 +4,9 @@ use super::sea_orm_active_enums::ContentType;
 use super::sea_orm_active_enums::Language;
 use super::sea_orm_active_enums::Status;
 use sea_orm::entity::prelude::*;
+use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq)]
+#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
 #[sea_orm(table_name = "post")]
 pub struct Model {
     #[sea_orm(primary_key)]

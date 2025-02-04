@@ -10,7 +10,7 @@ members = [".", "entity", "migration"]
 axum = "0.8.1"
 tokio = { version = "1", features = ["full"] }
 tower =  "0.5.2"
-sea-orm = { version = "1.1.0", features = [ "sqlx-mysql", "runtime-tokio-native-tls" ] }
+sea-orm = { version = "1.1.0", features = [ "sqlx-mysql", "runtime-tokio-native-tls", "with-json" ] }
 entity = { path = "entity" }
 migration = { path = "migration" }
 log = "0.4.25"
