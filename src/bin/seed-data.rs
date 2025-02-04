@@ -1,18 +1,11 @@
 use chrono::Utc;
-use entity::category;
-use entity::post;
-use entity::sea_orm_active_enums::ContentType;
-use entity::sea_orm_active_enums::Language;
-use entity::sea_orm_active_enums::Status;
-use entity::tag;
+use entity::sea_orm_active_enums::{ContentType, Language, Status};
+use entity::{category, post_category, post, post_tag, tag};
+use fake::Fake;
 use fake::faker::lorem::en::Paragraph;
 use fake::faker::lorem::en::Word;
-use fake::rand::prelude::SliceRandom;
-use fake::rand::rngs::StdRng;
-use fake::rand::SeedableRng;
-use fake::Fake;
-use sea_orm::ActiveValue::Set;
-use sea_orm::{entity::*, ConnectOptions, TransactionTrait};
+use fake::rand::{thread_rng, SeedableRng, rngs::StdRng, prelude::SliceRandom};
+use sea_orm::{entity::*, ConnectOptions, TransactionTrait, ActiveValue::Set};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -26,6 +19,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     create_tag(&transaction).await?;
     create_category(&transaction).await?;
     create_post(&transaction).await?;
+    create_post_tag(&transaction).await?;
+    create_post_category(&transaction).await?;
 
     transaction.commit().await?;
 
@@ -109,5 +104,43 @@ async fn create_post(transaction: &sea_orm::DatabaseTransaction) -> Result<(), s
         updated_at: Default::default(),
     }.insert(transaction).await?;
 
+    Ok(())
+}
+
+async fn create_post_tag(transaction: &sea_orm::DatabaseTransaction) -> Result<(), sea_orm::error::DbErr> {
+    
+    post_tag::Entity::delete_many().exec(transaction).await?;
+    
+    let posts: Vec<post::Model> = post::Entity::find().all(transaction).await?;
+    let tags: Vec<tag::Model> = tag::Entity::find().all(transaction).await?;
+    
+    for post in &posts {
+        let random_tag = tags.choose(&mut thread_rng()).unwrap();
+        post_tag::ActiveModel {
+            id: Default::default(),
+            post_id: Set(post.id),
+            tag_id: Set(random_tag.id),
+        }.insert(transaction).await?;
+    }
+    
+    Ok(())
+}
+
+async fn create_post_category(transaction: &sea_orm::DatabaseTransaction) -> Result<(), sea_orm::error::DbErr> {
+    
+    post_category::Entity::delete_many().exec(transaction).await?;
+    
+    let posts: Vec<post::Model> = post::Entity::find().all(transaction).await?;
+    let categories: Vec<category::Model> = category::Entity::find().all(transaction).await?;
+
+    for post in &posts {
+        let random_category = categories.choose(&mut thread_rng()).unwrap();
+        post_category::ActiveModel {
+            id: Default::default(),
+            post_id: Set(post.id),
+            category_id: Set(random_category.id),
+        }.insert(transaction).await?;
+    }
+    
     Ok(())
 }
