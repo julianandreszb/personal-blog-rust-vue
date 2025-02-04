@@ -15,6 +15,8 @@ entity = { path = "entity" }
 migration = { path = "migration" }
 log = "0.4.25"
 chrono = "0.4.39"
+fake = "3.1.0"
+rand = "0.9.0"
 
 [[bin]]
 name = "seed-data"

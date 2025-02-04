@@ -11,6 +11,14 @@ pub enum ContentType {
     Markdown,
 }
 #[derive(Debug, Clone, PartialEq, Eq, EnumIter, DeriveActiveEnum)]
+#[sea_orm(rs_type = "String", db_type = "Enum", enum_name = "language")]
+pub enum Language {
+    #[sea_orm(string_value = "es")]
+    Spanish,
+    #[sea_orm(string_value = "en")]
+    English,
+}
+#[derive(Debug, Clone, PartialEq, Eq, EnumIter, DeriveActiveEnum)]
 #[sea_orm(rs_type = "String", db_type = "Enum", enum_name = "status")]
 pub enum Status {
     #[sea_orm(string_value = "draft")]

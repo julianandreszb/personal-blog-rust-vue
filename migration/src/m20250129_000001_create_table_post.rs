@@ -45,8 +45,8 @@ impl MigrationTrait for Migration {
                     )
                     .col(
                         ColumnDef::new(Post::Language)
-                            .string()
-                            .string_len(50),
+                            .enumeration(Alias::new("language"), Language::iter())
+                            .default("en"),
                     )
                     .col(
                         ColumnDef::new(Post::FeaturedImage)
@@ -109,4 +109,12 @@ pub enum Status {
     Draft,
     #[iden = "published"]
     Published,
+}
+
+#[derive(Iden, EnumIter)]
+pub enum Language {
+    #[iden = "es"]
+    Spanish,
+    #[iden = "en"]
+    English,
 }
