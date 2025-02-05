@@ -1,2 +1,7 @@
 [env]
 DATABASE_URL="protocol://username:password@host:port/database_name"
+RUST_LOG="debug"
+BACKEND_HOSTNAME="http://localhost"
+BACKEND_PORT="3001"
+FRONTEND_HOSTNAME="http://localhost"
+FRONTEND_PORT="3000"
