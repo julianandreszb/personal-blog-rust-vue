@@ -77,6 +77,7 @@
   border-radius: 4px;
   transition: background-color 0.2s ease;
   display: block;
+  user-select: none;
 }
 
 .nav-link:hover {
