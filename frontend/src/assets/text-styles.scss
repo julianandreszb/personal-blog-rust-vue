@@ -1,0 +1,129 @@
+//region Display semibold
+@mixin display-md-semibold {
+  font-size: 3.6rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.2rem;
+  line-height: 4.4rem;
+}
+
+@mixin display-sm-semibold {
+  font-size: 3rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 3.8rem;
+}
+
+@mixin display-lg-semibold {
+  font-size: 4.8rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.2rem;
+  line-height: 6rem;
+}
+
+@mixin display-xl-semibold {
+  font-size: 6rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.2rem;
+  line-height: 7.2rem;
+}
+
+//endregion
+
+//region Text Semibold
+@mixin text-xs-semibold {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+}
+
+@mixin text-sm-semibold {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 2rem;
+
+}
+
+@mixin text-md-semibold {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 2.4rem;
+
+}
+
+@mixin text-lg-semibold {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 2.8rem;
+
+}
+
+@mixin text-xl-semibold {
+  font-size: 2rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 3rem;
+}
+
+//endregion
+
+//region Text Regular
+@mixin text-xs-regular {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+
+}
+
+@mixin text-sm-regular {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 2rem;
+
+}
+
+@mixin text-md-regular {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 2.4rem;
+}
+
+@mixin text-lg-regular {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 2.8rem;
+
+}
+
+//endregion
+
+//region Text Medium
+@mixin text-xs-medium {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+}
+
+@mixin text-sm-medium {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  line-height: 2rem;
+}
+
+@mixin text-md-medium {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  line-height: 2.4rem;
+}
+
+//endregion
