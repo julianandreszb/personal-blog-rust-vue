@@ -27,6 +27,7 @@
 
 <style lang="scss" scoped>
 @use '../assets/text-styles.scss' as text-styles;
+
 .app-header {
   background-color: var(--bg-primary);
   border-bottom: .1rem solid var(--border-primary);

@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /* Colors/base */
+  --colors-base-white: #FFFFFF;
+  --colors-base-black: #000000;
+
+  /* Colors/Brand */
+  --colors-brand-25: #FCFAFF;
+  --colors-brand-50: #F9F5FF;
+  --colors-brand-100: #F4EBFF;
+  --colors-brand-200: #E9D7FE;
+  --colors-brand-300: #D6BBFB;
+  --colors-brand-400: #B692F6;
+  --colors-brand-500: #9E77ED;
+  --colors-brand-600: #7F56D9;
+  --colors-brand-700: #6941C6;
+  --colors-brand-800: #53389E;
+  --colors-brand-900: #42307D;
+  --colors-brand-950: #2C1C5F;
+
+  /* Colors/Gray (dark mode) */
+  --colors-gray-dark-mode-25: #FAFAFA;
+  --colors-gray-dark-mode-50: #F5F5F6;
+  --colors-gray-dark-mode-100: #F0F1F1;
+  --colors-gray-dark-mode-200: #ECECED;
+  --colors-gray-dark-mode-300: #CECFD2;
+  --colors-gray-dark-mode-400: #94969C;
+  --colors-gray-dark-mode-500: #85888E;
+  --colors-gray-dark-mode-600: #61646C;
+  --colors-gray-dark-mode-700: #333741;
+  --colors-gray-dark-mode-800: #1F242F;
+  --colors-gray-dark-mode-900: #161B26;
+  --colors-gray-dark-mode-950: #0C111D;
+
+  /* Colors/Gray (light mode) */
+  --colors-gray-light-mode-25: #FCFCFD;
+  --colors-gray-light-mode-50: #F9FAFB;
+  --colors-gray-light-mode-100: #F2F4F7;
+  --colors-gray-light-mode-200: #EAECF0;
+  --colors-gray-light-mode-300: #D0D5DD;
+  --colors-gray-light-mode-400: #98A2B3;
+  --colors-gray-light-mode-500: #667085;
+  --colors-gray-light-mode-600: #475467;
+  --colors-gray-light-mode-700: #344054;
+  --colors-gray-light-mode-800: #182230;
+  --colors-gray-light-mode-900: #101828;
+  --colors-gray-light-mode-950: #0C111D;
+
+  --colors-error-100: #FEE4E2;
+  --colors-error-500: #F04438;
+  --colors-error-600: #D92D20;
+  --colors-error-900: #7A271A;
+
+  --colors-success-500: #17B26A;
+  --colors-success-600: #079455;
+}
+
+/* Radius */
+:root {
+  --radius-none: 0;
+  --radius-xxs: 0.2rem;
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.6rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.2rem;
+  --radius-2xl: 1.6rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.4rem;
+  --radius-full: 999.9rem;
+}
+
+/* Spacing */
+:root {
+  /* Spacing */
+  --spacing-none: 0rem;
+  --spacing-xxs: 0.2rem;
+  --spacing-xs: 0.4rem;
+  --spacing-sm: 0.6rem;
+  --spacing-md: 0.8rem;
+  --spacing-lg: 1.2rem;
+
+  --spacing-xl: 1.6rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 2.4rem;
+  --spacing-4xl: 3.2rem;
+  --spacing-5xl: 4rem;
+  --spacing-6xl: 4.8rem;
+  --spacing-7xl: 6.4rem;
+  --spacing-8xl: 8rem;
+  --spacing-9xl: 9.6rem;
+  --spacing-10xl: 12.8rem;
+  --spacing-11xl: 16rem;
+
+  /* Padding */
+  --container-padding-mobile: 1.6rem;
+  --container-padding-tablet: 3.2rem;
+  --container-padding-desktop: 6.4rem;
+}
+
+
+/* semantic color variables for this project */
+:root {
+  /* Background (light mode) */
+  --bg-primary: var(--colors-base-white);
+  --bg-primary_hover: var(--colors-gray-light-mode-50);
+
+  /* Background Alt (light mode) */
+  --bg-primary_alt: var(--colors-base-white);
+
+  /* Brand (light mode) */
+  --bg-brand-primary: var(--colors-brand-50);
+  --bg-brand-solid: var(--colors-brand-600);
+
+  --bg-disabled_subtle: var(--colors-gray-light-mode-50);
+
+  /* Foreground (light mode) */
+  --fg-white: var(--colors-base-white);
+  --fg-secondary_hover: var(--colors-gray-light-mode-800);
+  --fg-secondary-700: var(--colors-gray-light-mode-700);
+  --fg-brand-primary_alt: var(--colors-brand-600);
+  --fg-error-primary: var(--colors-error-600);
+  --fg-success-primary: var(--colors-success-600);
+
+  /* Border primary (light mode) */
+  --border-primary: var(--colors-gray-light-mode-300);
+
+  /* Border --border-secondary (light mode) */
+  --border-secondary: var(--colors-gray-light-mode-200);
+
+  /* Border --border-tertiary (light mode) */
+  --border-tertiary: var(--colors-gray-light-mode-100);
+
+  /* Border primary (light mode) */
+  --border-brand-solid: var(--colors-brand-600);
+  --border-brand: var(--colors-brand-300);
+
+
+  /* Border feature icon (light mode) */
+  --featured-icon-modern-border: var(--colors-gray-light-mode-200);
+
+  /* Text color (light mode) */
+  --text-primary: var(--colors-gray-light-mode-900);
+  --text-secondary: var(--colors-gray-light-mode-700);
+  --text-tertiary: var(--colors-gray-light-mode-600);
+  --text-quaternary: var(--colors-gray-light-mode-500);
+  --text-white: var(--colors-base-white);
+
+  /* Text brand secondary (light mode) */
+  --text-brand-secondary: var(--colors-brand-700);
+
+  /* Text placeholder (light mode) */
+  --text-placeholder: var(--colors-gray-light-mode-500);
+  --text-placeholder_subtle: var(--colors-gray-light-mode-300);
+
+  --text-disabled: var(--colors-gray-light-mode-500);
+
+  /* Button primary background (light mode)  */
+  --button-primary-bg: var(--colors-brand-600);
+  --button-primary-bg_hover: var(--colors-brand-700);
+  --button-primary-fg: var(--colors-base-white);
+  --button-primary-fg_hover: var(--colors-base-white);
+  --button-primary-border: var(--colors-brand-600);
+  --button-primary-border_hover: var(--colors-brand-700);
+
+  /* Button secondary (light mode)  */
+  --button-secondary-bg: var(--colors-base-white);
+  --button-secondary-bg_hover: var(--colors-gray-light-mode-50);
+  --button-secondary-fg: var(--colors-gray-light-mode-700);
+  --button-secondary-fg_hover: var(--colors-gray-light-mode-800);
+  --button-secondary-border: var(--colors-gray-light-mode-300);
+  --button-secondary-border_hover: var(--colors-gray-light-mode-300);
+
+  /* Button secondary color (light mode)  */
+  --button-secondary-color-bg: var(--colors-base-white);
+  --button-secondary-color-bg_hover: var(--colors-brand-50);
+  --button-secondary-color-fg: var(--colors-brand-700);
+  --button-secondary-color-fg_hover: var(--colors-brand-800);
+  --button-secondary-color-border: var(--colors-brand-300);
+  --button-secondary-color-border_hover: var(--colors-brand-300);
+
+
+  /* Button ternary foreground (light mode)  */
+  --button-tertiary-fg: var(--colors-gray-light-mode-500);
+  --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
+
+  --icon-color-default: var(--colors-gray-light-mode-950);
+
+  --colors-utility-error-100: var(--colors-error-100);
+
+  --alpha-white-30: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background (dark mode) */
+    --bg-primary: var(--colors-gray-dark-mode-950);
+    --bg-primary_hover: var(--colors-gray-dark-mode-800);
+
+    /* Background Alt (light mode) */
+    --bg-primary_alt: var(--colors-gray-dark-mode-900);
+
+    /* Brand (dark mode) */
+    --bg-brand-primary: var(--colors-brand-500);
+    --bg-brand-solid: var(--colors-brand-600);
+
+    --bg-disabled_subtle: var(--colors-gray-dark-mode-900);
+
+    /* Foreground (dark mode) */
+    --fg-white: var(--colors-base-white);
+    --fg-secondary_hover: var(--colors-gray-dark-mode-200);
+    --fg-secondary-700: var(--colors-gray-dark-mode-300);
+    --fg-brand-primary_alt: var(--colors-gray-dark-mode-300);
+    --fg-error-primary: var(--colors-error-500);
+    --fg-success-primary: var(--colors-success-500);
+
+    /* Border primary (dark mode) */
+    --border-primary: var(--colors-gray-dark-mode-700);
+
+    /* Border secondary (dark mode) */
+    --border-secondary: var(--colors-gray-dark-mode-800);
+
+    /* Border tertiary (dark mode) */
+    --border-tertiary: var(--colors-gray-dark-mode-800);
+
+    /* Border primary (light mode) */
+    --border-brand-solid: var(--colors-brand-500);
+    --border-brand: var(--colors-brand-400);
+
+    /* Border feature icon (dark mode) */
+    --featured-icon-modern-border: var(--colors-gray-dark-mode-700);
+
+    /* Text color (dark mode) */
+    --text-primary: var(--colors-gray-dark-mode-50);
+    --text-secondary: var(--colors-gray-dark-mode-300);
+    --text-tertiary: var(--colors-gray-dark-mode-400);
+    --text-quaternary: var(--colors-gray-dark-mode-400);
+    --text-white: var(--colors-base-white);
+
+    /* Text brand secondary (light mode) */
+    --text-brand-secondary: var(--colors-gray-dark-mode-300);
+
+    /* Text placeholder (light mode) */
+    --text-placeholder: var(--colors-gray-dark-mode-500);
+    --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
+
+    --text-disabled: var(--colors-gray-dark-mode-500);
+
+    /* Button primary background (dark mode)  */
+    --button-primary-bg: var(--colors-brand-600);
+    --button-primary-bg_hover: var(--colors-brand-700);
+    --button-primary-fg: var(--colors-base-white);
+    --button-primary-fg_hover: var(--colors-base-white);
+    --button-primary-border: var(--colors-brand-600);
+    --button-primary-border_hover: var(--colors-brand-700);
+
+    /* Button secondary (dark mode)  */
+    --button-secondary-bg: var(--colors-gray-dark-mode-900);
+    --button-secondary-bg_hover: var(--colors-gray-dark-mode-800);
+    --button-secondary-fg: var(--colors-gray-dark-mode-300);
+    --button-secondary-fg_hover: var(--colors-gray-dark-mode-100);
+    --button-secondary-border: var(--colors-gray-dark-mode-700);
+    --button-secondary-border_hover: var(--colors-gray-dark-mode-700);
+
+    /* Button secondary color (dark mode)  */
+    --button-secondary-color-bg: var(--colors-gray-dark-mode-900);
+    --button-secondary-color-bg_hover: var(--colors-gray-dark-mode-800);
+    --button-secondary-color-fg: var(--colors-gray-dark-mode-300);
+    --button-secondary-color-fg_hover: var(--colors-gray-dark-mode-100);
+    --button-secondary-color-border: var(--colors-gray-dark-mode-700);
+    --button-secondary-color-border_hover: var(--colors-gray-dark-mode-700);
+
+    /* Button ternary foreground (dark mode)  */
+    --button-tertiary-fg: var(--colors-gray-dark-mode-400);
+    --button-tertiary-fg_hover: var(--colors-gray-dark-mode-200);
+
+    --icon-color-default: var(--colors-gray-dark-mode-25);
+
+    --colors-utility-error-100: var(--colors-error-900);
+
+    --alpha-white-30: rgb(12, 17, 29, 0.3);
+  }
+}
+
+/* Font weight */
+:root {
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: color 0.5s,
+  background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
