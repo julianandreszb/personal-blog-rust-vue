@@ -1,8 +1,9 @@
 <script setup>
-import AppHeader from '@/components/AppHeader.vue'
+import AppHeader from '@/components/Layout/AppHeader.vue'
+import PostList from '@/components/Content/PostList.vue'
 </script>
 
 <template>
   <app-header />
-  <h1>Hello </h1>
+  <post-list />
 </template>

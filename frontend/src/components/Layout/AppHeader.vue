@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <header class="app-header">
     <nav class="navbar">
@@ -13,24 +15,20 @@
       </label>
 
       <ul class="nav-links">
-        <li><router-link to="/" class="nav-link">Home</router-link></li>
-        <li><router-link to="/" class="nav-link">Home</router-link></li>
-        <li><router-link to="/" class="nav-link">Home</router-link></li>
-        <li><router-link to="/" class="nav-link">Home</router-link></li>
+        <li>
+          <router-link to="/" class="nav-link">/</router-link>
+        </li>
       </ul>
     </nav>
   </header>
 </template>
 
-<script setup>
-</script>
-
 <style lang="scss" scoped>
-@use '../assets/text-styles.scss' as text-styles;
+@use '../../assets/text-styles' as text-styles;
 
 .app-header {
   background-color: var(--bg-primary);
-  border-bottom: .1rem solid var(--border-primary);
+  border-bottom: 0.1rem solid var(--border-primary);
   height: 4rem;
   display: flex;
   flex-direction: column;
@@ -48,7 +46,7 @@
   margin-inline-start: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
-  z-index: 20;        /* Higher z-index than .nav-links */
+  z-index: 20; /* Higher z-index than .nav-links */
   position: relative; /* Needed for z-index to work */
 }
 
@@ -102,7 +100,7 @@
   display: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 20;        /* Higher z-index than .nav-links */
+  z-index: 20; /* Higher z-index than .nav-links */
   position: relative; /* Needed for z-index to work*/
 }
 
@@ -130,7 +128,7 @@
     left: 0;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;  /* Lower z-index than hamburger and brand */
+    z-index: 10; /* Lower z-index than hamburger and brand */
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
@@ -145,14 +143,14 @@
   .nav-links li {
     margin-left: 0;
     width: 100%;
-    text-align: center; 
+    text-align: center;
   }
-  
+
   .nav-links li:last-child {
-    border-bottom: .1rem solid var(--border-primary);
+    border-bottom: 0.1rem solid var(--border-primary);
   }
-  
-  .nav-links li a{
+
+  .nav-links li a {
     width: 100%; /*To make the entire area clickable*/
   }
 
