@@ -37,6 +37,10 @@ impl MigrationTrait for Migration {
                         ColumnDef::new(Post::Content)
                             .text()
                             .not_null(),
+                    ).col(
+                        ColumnDef::new(Post::Excerpt)
+                            .text()
+                            .not_null(),
                     )
                     .col(
                         ColumnDef::new(Post::ContentType)
@@ -87,6 +91,7 @@ pub(crate) enum Post {
     Title,
     Slug,
     Content,
+    Excerpt,
     ContentType,
     Language,
     FeaturedImage,

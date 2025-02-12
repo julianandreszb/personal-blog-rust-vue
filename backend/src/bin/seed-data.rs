@@ -69,6 +69,7 @@ async fn create_post(transaction: &sea_orm::DatabaseTransaction) -> Result<(), s
     let slug = title.to_lowercase().replace(" ", "-");
     
     // Generate a random post content
+    let excerpt: String = Paragraph(1..2).fake_with_rng(&mut rng);
     let content: String = Paragraph(3..6).fake_with_rng(&mut rng);
 
     let content_type = match *["html", "markdown"].choose(&mut rng).unwrap() {
@@ -95,6 +96,7 @@ async fn create_post(transaction: &sea_orm::DatabaseTransaction) -> Result<(), s
         id: Default::default(),
         title: Set(title),
         slug: Set(slug),
+        excerpt: Set(excerpt),
         content: Set(content),
         content_type: Set(content_type),
         language: Set(language),

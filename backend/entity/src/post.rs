@@ -16,6 +16,8 @@ pub struct Model {
     pub slug: String,
     #[sea_orm(column_type = "Text")]
     pub content: String,
+    #[sea_orm(column_type = "Text")]
+    pub excerpt: String,
     pub content_type: Option<ContentType>,
     pub language: Option<Language>,
     pub featured_image: Option<String>,
