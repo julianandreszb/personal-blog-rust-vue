@@ -4,7 +4,9 @@ use super::sea_orm_active_enums::ContentType;
 use super::sea_orm_active_enums::Language;
 use super::sea_orm_active_enums::Status;
 use sea_orm::entity::prelude::*;
+use sea_orm::FromQueryResult;
 use serde::{Deserialize, Serialize};
+use crate::category::CategoryWithName;
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
 #[sea_orm(table_name = "post")]
@@ -24,6 +26,23 @@ pub struct Model {
     pub status: Option<Status>,
     pub created_at: Option<DateTime>,
     pub updated_at: Option<DateTime>,
+}
+
+// Intermediate struct for database results
+#[derive(Debug, FromQueryResult)]
+pub  struct PostCategoryRow {
+    pub id: i32,
+    pub  title: String,
+    pub  category_id: i32,
+    pub  category_name: String,
+}
+
+// Final output structure
+#[derive(Debug, Serialize)]
+pub struct PostWithCategories {
+    pub  id: i32,
+    pub  title: String,
+    pub  categories: Vec<CategoryWithName>,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

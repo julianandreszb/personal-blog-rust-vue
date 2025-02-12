@@ -2,17 +2,12 @@ use axum::http::header::CONTENT_TYPE;
 use axum::http::StatusCode;
 use axum::{extract::Path, extract::State, routing::get, Json, Router};
 use entity::category;
+use entity::category::CategoryWithName;
 use entity::post;
+use entity::post::{PostCategoryRow, PostWithCategories};
 use entity::post_category;
-use entity::post_category::Relation::{Category, Post};
-use itertools::Itertools;
 use sea_orm::prelude::DateTime;
-use sea_orm::sea_query::SimpleExpr::Case;
-use sea_orm::sea_query::{Alias, Expr};
-use sea_orm::{
-    ConnectOptions, DatabaseConnection, EntityTrait, FromQueryResult, IntoSimpleExpr, JoinType,
-    QuerySelect, Related, RelationTrait, SelectColumns,
-};
+use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, FromQueryResult, JoinType, QueryOrder, QuerySelect};
 use serde::Serialize;
 use std::collections::HashMap;
 use std::net::SocketAddr;
@@ -52,14 +47,14 @@ async fn main() {
 fn serve_vue_app() -> Router {
     let hostname = std::env::var("FRONTEND_HOSTNAME")
         .expect(".cargo/config.toml `FRONTEND_HOSTNAME` variable must be set");
-    
+
     let port = std::env::var("FRONTEND_PORT")
         .expect(".cargo/config.toml `FRONTEND_PORT` variable must be set");
-    
+
     let origin = format!("{}:{}", hostname, port)
         .parse()
         .expect("Invalid frontend hostname and port");
-    
+
     let origins = [origin];
     Router::new()
         .nest_service("/app", ServeDir::new("../frontend/dist"))
@@ -74,24 +69,24 @@ fn serve_vue_app() -> Router {
 async fn serve_api() -> Router {
     let hostname_frontend = std::env::var("FRONTEND_HOSTNAME")
         .expect(".cargo/config.toml `FRONTEND_HOSTNAME` variable must be set");
-    
+
     let port_frontend = std::env::var("FRONTEND_PORT")
         .expect(".cargo/config.toml `FRONTEND_PORT` variable must be set");
-    
+
     let origin_frontend = format!("{}:{}", hostname_frontend, port_frontend)
         .parse()
         .expect("Invalid frontend hostname and port");
-    
+
     let hostname = std::env::var("BACKEND_HOSTNAME")
         .expect(".cargo/config.toml `BACKEND  ND_HOSTNAME` variable must be set");
-    
+
     let port = std::env::var("BACKEND_PORT")
         .expect(".cargo/config.toml `BACKEND_PORT` variable must be set");
-    
+
     let origin = format!("{}:{}", hostname, port)
         .parse()
         .expect("Invalid frontend hostname and port");
-    
+
     let origins = [origin, origin_frontend];
     let database_url = std::env::var("DATABASE_URL")
         .expect(".cargo/config.toml `DATABASE_URL` variable must be set");
@@ -101,7 +96,6 @@ async fn serve_api() -> Router {
         .expect("Could not connect to database");
     let state = AppState { conn: connection };
     let api_router = Router::new()
-        .route("/links", get(get_posts))
         .route("/posts", get(get_posts))
         .route("/posts/{id}", get(get_post_by_id))
         .layer(
@@ -128,52 +122,30 @@ async fn serve(app: Router, port: u16) {
         .expect("Could not start server");
 }
 
-// Intermediate struct for database results
-#[derive(Debug, FromQueryResult)]
-struct PostCategoryRow {
-    post_id: i32,
-    post_title: String,
-    category_id: i32,
-    category_name: String,
-}
-
-// Final output structure
-#[derive(Debug, Serialize)]
-struct PostWithCategories {
-    id: i32,
-    title: String,
-    categories: Vec<CategoryWithName>,
-}
-
-#[derive(Debug, Serialize, Clone)]
-struct CategoryWithName {
-    category_id: i32,
-    category_name: String,
-}
-
 async fn get_posts(
     state: State<AppState>,
 ) -> Result<Json<Vec<PostWithCategories>>, (StatusCode, String)> {
     let result = post::Entity::find()
         .select_only()
-        .column_as(post::Column::Id, "post_id")
-        .column_as(post::Column::Title, "post_title")
+        .column(post::Column::Id)
+        .column(post::Column::Title)
         .column_as(category::Column::Id, "category_id")
         .column_as(category::Column::Name, "category_name")
         .join_rev(
-            JoinType::InnerJoin, // Consider LeftJoin if some posts might not have categories
+            JoinType::InnerJoin,
             post_category::Entity::belongs_to(post::Entity)
                 .from(post_category::Column::PostId)
                 .to(post::Column::Id)
                 .into(),
         )
         .join(
-            JoinType::InnerJoin, // Consider LeftJoin
+            JoinType::InnerJoin,
             post_category::Entity::belongs_to(category::Entity)
                 .from(post_category::Column::CategoryId)
                 .to(category::Column::Id)
                 .into(),
         )
+        .order_by_desc(post::Column::Id)
         .into_model::<PostCategoryRow>() // Use the intermediate struct
         .all(&state.conn)
         .await;
@@ -183,17 +155,15 @@ async fn get_posts(
             let mut grouped_posts: HashMap<i32, PostWithCategories> = HashMap::new();
 
             for row in rows {
-                let post = grouped_posts
-                    .entry(row.post_id)
-                    .or_insert(PostWithCategories {
-                        id: row.post_id,
-                        title: row.post_title,
-                        categories: Vec::new(),
-                    });
+                let post = grouped_posts.entry(row.id).or_insert(PostWithCategories {
+                    id: row.id,
+                    title: row.title,
+                    categories: Vec::new(),
+                });
 
                 post.categories.push(CategoryWithName {
-                    category_id: row.category_id,
-                    category_name: row.category_name.clone(),
+                    id: row.category_id,
+                    name: row.category_name,
                 });
             }
 
