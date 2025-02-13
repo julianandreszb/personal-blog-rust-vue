@@ -1,18 +1,20 @@
 use axum::http::header::CONTENT_TYPE;
 use axum::http::StatusCode;
 use axum::{extract::Path, extract::State, routing::get, Json, Router};
-use entity::category;
+use entity::{category, tag};
 use entity::category::CategoryWithName;
 use entity::post;
-use entity::post::{PostCategoryRow, PostWithCategories};
+use entity::post::PostApiResponse;
+use entity::post::PostPartial;
 use entity::post_category;
+use entity::post_tag;
 use sea_orm::prelude::DateTime;
-use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, FromQueryResult, JoinType, QueryOrder, QuerySelect};
-use serde::Serialize;
+use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, FromQueryResult, JoinType, QuerySelect};
 use std::collections::HashMap;
 use std::net::SocketAddr;
 use tower_http::{cors::CorsLayer, services::ServeDir, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+use entity::tag::TagWithName;
 
 #[tokio::main]
 async fn main() {
@@ -124,56 +126,104 @@ async fn serve(app: Router, port: u16) {
 
 async fn get_posts(
     state: State<AppState>,
-) -> Result<Json<Vec<PostWithCategories>>, (StatusCode, String)> {
-    let result = post::Entity::find()
+) -> Result<Json<Vec<PostApiResponse>>, (StatusCode, String)> {
+
+    //region Fetch all posts, categories, and tags
+    // 1. Fetch all posts (id and title)
+    let posts = post::Entity::find()
         .select_only()
         .column(post::Column::Id)
         .column(post::Column::Title)
-        .column_as(category::Column::Id, "category_id")
-        .column_as(category::Column::Name, "category_name")
-        .join_rev(
-            JoinType::InnerJoin,
-            post_category::Entity::belongs_to(post::Entity)
-                .from(post_category::Column::PostId)
-                .to(post::Column::Id)
-                .into(),
-        )
-        .join(
-            JoinType::InnerJoin,
-            post_category::Entity::belongs_to(category::Entity)
-                .from(post_category::Column::CategoryId)
-                .to(category::Column::Id)
-                .into(),
-        )
-        .order_by_desc(post::Column::Id)
-        .into_model::<PostCategoryRow>() // Use the intermediate struct
+        .into_model::<PostPartial>()
         .all(&state.conn)
-        .await;
+        .await
+        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
-    match result {
-        Ok(rows) => {
-            let mut grouped_posts: HashMap<i32, PostWithCategories> = HashMap::new();
+    // 2. Fetch post-category relationships
+    let post_categories = post_category::Entity::find()
+        .all(&state.conn)
+        .await
+        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
-            for row in rows {
-                let post = grouped_posts.entry(row.id).or_insert(PostWithCategories {
-                    id: row.id,
-                    title: row.title,
-                    categories: Vec::new(),
-                });
+    // 3. Fetch post-tag relationships
+    let post_tags = post_tag::Entity::find()
+        .all(&state.conn)
+        .await
+        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
-                post.categories.push(CategoryWithName {
-                    id: row.category_id,
-                    name: row.category_name,
-                });
-            }
+    // 4. Fetch all categories
+    let categories = category::Entity::find()
+        .all(&state.conn)
+        .await
+        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
-            Ok(Json(grouped_posts.into_values().collect()))
-        }
-        Err(err) => {
-            println!("{:?}", err);
-            Err((StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))
-        }
+    // 5. Fetch all tags
+    let tags = tag::Entity::find()
+        .all(&state.conn)
+        .await
+        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+    //endregion
+
+    //region Create HashMaps for efficient lookups
+    let mut category_map: HashMap<i32, Vec<i32>> = HashMap::new();
+    
+    for post_category in post_categories {
+        category_map.entry(post_category.post_id).or_default().push(post_category.category_id);
     }
+
+    let mut tag_map: HashMap<i32, Vec<i32>> = HashMap::new();
+    for post_tag in post_tags {
+        tag_map.entry(post_tag.post_id).or_default().push(post_tag.tag_id);
+    }
+
+    let mut category_by_id: HashMap<i32, CategoryWithName> = HashMap::new();
+
+    for category in categories {
+        category_by_id.insert(category.id, CategoryWithName {
+            id: category.id,
+            name: category.name,
+        });
+    }
+
+    let mut tag_by_id: HashMap<i32, TagWithName> = HashMap::new();
+
+    for tag in tags {
+        tag_by_id.insert(tag.id, TagWithName {
+            id: tag.id,
+            name: tag.name,
+        });
+    }
+    //endregion
+
+    //region Build the final result
+    let mut result: Vec<PostApiResponse> = Vec::with_capacity(posts.len());
+    for post in posts {
+        let categories = category_map
+            .get(&post.id)
+            .unwrap_or(&Vec::new())
+            .iter()
+            .filter_map(|category_id| category_by_id.get(category_id))
+            .cloned()
+            .collect();
+
+        let tags = tag_map
+            .get(&post.id)
+            .unwrap_or(&Vec::new())
+            .iter()
+            .filter_map(|tag_id| tag_by_id.get(tag_id))
+            .cloned()
+            .collect();
+
+        result.push(PostApiResponse {
+            id: post.id,
+            title: post.title,
+            categories,
+            tags,
+        });
+    }
+    //endregion
+
+    Ok(Json(result))
 }
 
 async fn get_post_by_id(

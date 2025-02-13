@@ -7,6 +7,7 @@ use sea_orm::entity::prelude::*;
 use sea_orm::FromQueryResult;
 use serde::{Deserialize, Serialize};
 use crate::category::CategoryWithName;
+use crate::tag::TagWithName;
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
 #[sea_orm(table_name = "post")]
@@ -28,22 +29,22 @@ pub struct Model {
     pub updated_at: Option<DateTime>,
 }
 
-// Intermediate struct for database results
-#[derive(Debug, FromQueryResult)]
-pub  struct PostCategoryRow {
-    pub id: i32,
-    pub  title: String,
-    pub  category_id: i32,
-    pub  category_name: String,
-}
-
 // Final output structure
 #[derive(Debug, Serialize)]
-pub struct PostWithCategories {
+pub struct PostApiResponse {
     pub  id: i32,
     pub  title: String,
     pub  categories: Vec<CategoryWithName>,
+    pub  tags: Vec<TagWithName>,
 }
+
+// Intermediate struct for database results
+#[derive(Debug, FromQueryResult)]
+pub  struct PostPartial {
+    pub  id: i32,
+    pub  title: String,
+}
+
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {
