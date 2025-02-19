@@ -3,11 +3,11 @@
 use super::sea_orm_active_enums::ContentType;
 use super::sea_orm_active_enums::Language;
 use super::sea_orm_active_enums::Status;
+use crate::category::CategoryWithName;
+use crate::tag::TagWithName;
 use sea_orm::entity::prelude::*;
 use sea_orm::FromQueryResult;
 use serde::{Deserialize, Serialize};
-use crate::category::CategoryWithName;
-use crate::tag::TagWithName;
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
 #[sea_orm(table_name = "post")]
@@ -32,19 +32,24 @@ pub struct Model {
 // Final output structure
 #[derive(Debug, Serialize)]
 pub struct PostApiResponse {
-    pub  id: i32,
-    pub  title: String,
-    pub  categories: Vec<CategoryWithName>,
-    pub  tags: Vec<TagWithName>,
+    pub id: i32,
+    pub title: String,
+    pub slug: String,
+    pub featured_image: Option<String>,
+    pub updated_at: Option<DateTime>,
+    pub categories: Vec<CategoryWithName>,
+    pub tags: Vec<TagWithName>,
 }
 
 // Intermediate struct for database results
 #[derive(Debug, FromQueryResult)]
-pub  struct PostPartial {
-    pub  id: i32,
-    pub  title: String,
+pub struct PostPartial {
+    pub id: i32,
+    pub title: String,
+    pub slug: String,
+    pub featured_image: Option<String>,
+    pub updated_at: Option<DateTime>,
 }
-
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {

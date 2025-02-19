@@ -134,6 +134,9 @@ async fn get_posts(
         .select_only()
         .column(post::Column::Id)
         .column(post::Column::Title)
+        .column(post::Column::Slug)
+        .column(post::Column::FeaturedImage)
+        .column(post::Column::UpdatedAt)
         .into_model::<PostPartial>()
         .all(&state.conn)
         .await
@@ -217,6 +220,9 @@ async fn get_posts(
         result.push(PostApiResponse {
             id: post.id,
             title: post.title,
+            slug: post.slug,
+            featured_image: post.featured_image,
+            updated_at: post.updated_at,
             categories,
             tags,
         });
