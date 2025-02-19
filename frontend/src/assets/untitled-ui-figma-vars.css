@@ -1,0 +1,2854 @@
+:root {
+  /* Colors */
+  --base-white: #ffffff;
+  --base-black: #000000;
+  --gray-light-mode-25: #fdfdfd;
+  --gray-light-mode-50: #fafafa;
+  --gray-light-mode-100: #f5f5f5;
+  --gray-light-mode-200: #e9eaeb;
+  --gray-light-mode-300: #d5d7da;
+  --gray-light-mode-400: #a4a7ae;
+  --gray-light-mode-500: #717680;
+  --gray-light-mode-600: #535862;
+  --gray-light-mode-700: #414651;
+  --gray-light-mode-800: #252b37;
+  --gray-light-mode-900: #181d27;
+  --gray-light-mode-950: #0a0d12;
+  --gray-dark-mode-25: #fafafa;
+  --gray-dark-mode-50: #f7f7f7;
+  --gray-dark-mode-100: #f0f0f1;
+  --gray-dark-mode-200: #ececed;
+  --gray-dark-mode-300: #cecfd2;
+  --gray-dark-mode-400: #94979c;
+  --gray-dark-mode-500: #85888e;
+  --gray-dark-mode-600: #61656c;
+  --gray-dark-mode-700: #373a41;
+  --gray-dark-mode-800: #22262f;
+  --gray-dark-mode-900: #13161b;
+  --gray-dark-mode-950: #0c0e12;
+  --brand-25: #fcfaff;
+  --brand-50: #f9f5ff;
+  --brand-100: #f4ebff;
+  --brand-200: #e9d7fe;
+  --brand-300: #d6bbfb;
+  --brand-400: #b692f6;
+  --brand-500: #9e77ed;
+  --brand-600: #7f56d9;
+  --brand-700: #6941c6;
+  --brand-800: #53389e;
+  --brand-900: #42307d;
+  --brand-950: #2c1c5f;
+  --error-25: #fffbfa;
+  --error-50: #fef3f2;
+  --error-100: #fee4e2;
+  --error-200: #fecdca;
+  --error-300: #fda29b;
+  --error-400: #f97066;
+  --error-500: #f04438;
+  --error-600: #d92d20;
+  --error-700: #b42318;
+  --error-800: #912018;
+  --error-900: #7a271a;
+  --error-950: #55160c;
+  --warning-25: #fffcf5;
+  --warning-50: #fffaeb;
+  --warning-100: #fef0c7;
+  --warning-200: #fedf89;
+  --warning-300: #fec84b;
+  --warning-400: #fdb022;
+  --warning-500: #f79009;
+  --warning-600: #dc6803;
+  --warning-700: #b54708;
+  --warning-800: #93370d;
+  --warning-900: #7a2e0e;
+  --warning-950: #4e1d09;
+  --success-25: #f6fef9;
+  --success-50: #ecfdf3;
+  --success-100: #dcfae6;
+  --success-200: #abefc6;
+  --success-300: #75e0a7;
+  --success-400: #47cd89;
+  --success-500: #17b26a;
+  --success-600: #079455;
+  --success-700: #067647;
+  --success-800: #085d3a;
+  --success-900: #074d31;
+  --success-950: #053321;
+  --gray-blue-25: #fcfcfd;
+  --gray-blue-50: #f8f9fc;
+  --gray-blue-100: #eaecf5;
+  --gray-blue-200: #d5d9eb;
+  --gray-blue-300: #b3b8db;
+  --gray-blue-400: #717bbc;
+  --gray-blue-500: #4e5ba6;
+  --gray-blue-600: #3e4784;
+  --gray-blue-700: #363f72;
+  --gray-blue-800: #293056;
+  --gray-blue-900: #101323;
+  --gray-blue-950: #0d0f1c;
+  --gray-cool-25: #fcfcfd;
+  --gray-cool-50: #f9f9fb;
+  --gray-cool-100: #eff1f5;
+  --gray-cool-200: #dcdfea;
+  --gray-cool-300: #b9c0d4;
+  --gray-cool-400: #7d89b0;
+  --gray-cool-500: #5d6b98;
+  --gray-cool-600: #4a5578;
+  --gray-cool-700: #404968;
+  --gray-cool-800: #30374f;
+  --gray-cool-900: #111322;
+  --gray-cool-950: #0e101b;
+  --gray-modern-25: #fcfcfd;
+  --gray-modern-50: #f8fafc;
+  --gray-modern-100: #eef2f6;
+  --gray-modern-200: #e3e8ef;
+  --gray-modern-300: #cdd5df;
+  --gray-modern-400: #9aa4b2;
+  --gray-modern-500: #697586;
+  --gray-modern-600: #4b5565;
+  --gray-modern-700: #364152;
+  --gray-modern-800: #202939;
+  --gray-modern-900: #121926;
+  --gray-modern-950: #0d121c;
+  --gray-neutral-25: #fcfcfd;
+  --gray-neutral-50: #f9fafb;
+  --gray-neutral-100: #f3f4f6;
+  --gray-neutral-200: #e5e7eb;
+  --gray-neutral-300: #d2d6db;
+  --gray-neutral-400: #9da4ae;
+  --gray-neutral-500: #6c737f;
+  --gray-neutral-600: #4d5761;
+  --gray-neutral-700: #384250;
+  --gray-neutral-800: #1f2a37;
+  --gray-neutral-900: #111927;
+  --gray-neutral-950: #0d121c;
+  --gray-iron-25: #fcfcfc;
+  --gray-iron-50: #fafafa;
+  --gray-iron-100: #f4f4f5;
+  --gray-iron-200: #e4e4e7;
+  --gray-iron-300: #d1d1d6;
+  --gray-iron-400: #a0a0ab;
+  --gray-iron-500: #70707b;
+  --gray-iron-600: #51525c;
+  --gray-iron-700: #3f3f46;
+  --gray-iron-800: #26272b;
+  --gray-iron-900: #1a1a1e;
+  --gray-iron-950: #131316;
+  --gray-true-25: #fcfcfc;
+  --gray-true-50: #f7f7f7;
+  --gray-true-100: #f5f5f5;
+  --gray-true-200: #e5e5e5;
+  --gray-true-300: #d6d6d6;
+  --gray-true-400: #a3a3a3;
+  --gray-true-500: #737373;
+  --gray-true-600: #525252;
+  --gray-true-700: #424242;
+  --gray-true-800: #292929;
+  --gray-true-900: #141414;
+  --gray-true-950: #0f0f0f;
+  --gray-warm-25: #fdfdfc;
+  --gray-warm-50: #fafaf9;
+  --gray-warm-100: #f5f5f4;
+  --gray-warm-200: #e7e5e4;
+  --gray-warm-300: #d7d3d0;
+  --gray-warm-400: #a9a29d;
+  --gray-warm-500: #79716b;
+  --gray-warm-600: #57534e;
+  --gray-warm-700: #44403c;
+  --gray-warm-800: #292524;
+  --gray-warm-900: #1c1917;
+  --gray-warm-950: #171412;
+  --moss-25: #fafdf7;
+  --moss-50: #f5fbee;
+  --moss-100: #e6f4d7;
+  --moss-200: #ceeab0;
+  --moss-300: #acdc79;
+  --moss-400: #86cb3c;
+  --moss-500: #669f2a;
+  --moss-600: #4f7a21;
+  --moss-700: #3f621a;
+  --moss-800: #335015;
+  --moss-900: #2b4212;
+  --moss-950: #1a280b;
+  --green-light-25: #fafef5;
+  --green-light-50: #f3fee7;
+  --green-light-100: #e3fbcc;
+  --green-light-200: #d0f8ab;
+  --green-light-300: #a6ef67;
+  --green-light-400: #85e13a;
+  --green-light-500: #66c61c;
+  --green-light-600: #4ca30d;
+  --green-light-700: #3b7c0f;
+  --green-light-800: #326212;
+  --green-light-900: #2b5314;
+  --green-light-950: #15290a;
+  --green-25: #f6fef9;
+  --green-50: #edfcf2;
+  --green-100: #d3f8df;
+  --green-200: #aaf0c4;
+  --green-300: #73e2a3;
+  --green-400: #3ccb7f;
+  --green-500: #16b364;
+  --green-600: #099250;
+  --green-700: #087443;
+  --green-800: #095c37;
+  --green-900: #084c2e;
+  --green-950: #052e1c;
+  --teal-25: #f6fefc;
+  --teal-50: #f0fdf9;
+  --teal-100: #ccfbef;
+  --teal-200: #99f6e0;
+  --teal-300: #5fe9d0;
+  --teal-400: #2ed3b7;
+  --teal-500: #15b79e;
+  --teal-600: #0e9384;
+  --teal-700: #107569;
+  --teal-800: #125d56;
+  --teal-900: #134e48;
+  --teal-950: #0a2926;
+  --cyan-25: #f5feff;
+  --cyan-50: #ecfdff;
+  --cyan-100: #cff9fe;
+  --cyan-200: #a5f0fc;
+  --cyan-300: #67e3f9;
+  --cyan-400: #22ccee;
+  --cyan-500: #06aed4;
+  --cyan-600: #088ab2;
+  --cyan-700: #0e7090;
+  --cyan-800: #155b75;
+  --cyan-900: #164c63;
+  --cyan-950: #0d2d3a;
+  --blue-light-25: #f5fbff;
+  --blue-light-50: #f0f9ff;
+  --blue-light-100: #e0f2fe;
+  --blue-light-200: #b9e6fe;
+  --blue-light-300: #7cd4fd;
+  --blue-light-400: #36bffa;
+  --blue-light-500: #0ba5ec;
+  --blue-light-600: #0086c9;
+  --blue-light-700: #026aa2;
+  --blue-light-800: #065986;
+  --blue-light-900: #0b4a6f;
+  --blue-light-950: #062c41;
+  --blue-25: #f5faff;
+  --blue-50: #eff8ff;
+  --blue-100: #d1e9ff;
+  --blue-200: #b2ddff;
+  --blue-300: #84caff;
+  --blue-400: #53b1fd;
+  --blue-500: #2e90fa;
+  --blue-600: #1570ef;
+  --blue-700: #175cd3;
+  --blue-800: #1849a9;
+  --blue-900: #194185;
+  --blue-950: #102a56;
+  --blue-dark-25: #f5f8ff;
+  --blue-dark-50: #eff4ff;
+  --blue-dark-100: #d1e0ff;
+  --blue-dark-200: #b2ccff;
+  --blue-dark-300: #84adff;
+  --blue-dark-400: #528bff;
+  --blue-dark-500: #2970ff;
+  --blue-dark-600: #155eef;
+  --blue-dark-700: #004eeb;
+  --blue-dark-800: #0040c1;
+  --blue-dark-900: #00359e;
+  --blue-dark-950: #002266;
+  --indigo-25: #f5f8ff;
+  --indigo-50: #eef4ff;
+  --indigo-100: #e0eaff;
+  --indigo-200: #c7d7fe;
+  --indigo-300: #a4bcfd;
+  --indigo-400: #8098f9;
+  --indigo-500: #6172f3;
+  --indigo-600: #444ce7;
+  --indigo-700: #3538cd;
+  --indigo-800: #2d31a6;
+  --indigo-900: #2d3282;
+  --indigo-950: #1f235b;
+  --violet-25: #fbfaff;
+  --violet-50: #f5f3ff;
+  --violet-100: #ece9fe;
+  --violet-200: #ddd6fe;
+  --violet-300: #c3b5fd;
+  --violet-400: #a48afb;
+  --violet-500: #875bf7;
+  --violet-600: #7839ee;
+  --violet-700: #6927da;
+  --violet-800: #5720b7;
+  --violet-900: #491c96;
+  --violet-950: #2e125e;
+  --purple-25: #fafaff;
+  --purple-50: #f4f3ff;
+  --purple-100: #ebe9fe;
+  --purple-200: #d9d6fe;
+  --purple-300: #bdb4fe;
+  --purple-400: #9b8afb;
+  --purple-500: #7a5af8;
+  --purple-600: #6938ef;
+  --purple-700: #5925dc;
+  --purple-800: #4a1fb8;
+  --purple-900: #3e1c96;
+  --purple-950: #27115f;
+  --fuchsia-25: #fefaff;
+  --fuchsia-50: #fdf4ff;
+  --fuchsia-100: #fbe8ff;
+  --fuchsia-200: #f6d0fe;
+  --fuchsia-300: #eeaafd;
+  --fuchsia-400: #e478fa;
+  --fuchsia-500: #d444f1;
+  --fuchsia-600: #ba24d5;
+  --fuchsia-700: #9f1ab1;
+  --fuchsia-800: #821890;
+  --fuchsia-900: #6f1877;
+  --fuchsia-950: #47104c;
+  --pink-25: #fef6fb;
+  --pink-50: #fdf2fa;
+  --pink-100: #fce7f6;
+  --pink-200: #fcceee;
+  --pink-300: #faa7e0;
+  --pink-400: #f670c7;
+  --pink-500: #ee46bc;
+  --pink-600: #dd2590;
+  --pink-700: #c11574;
+  --pink-800: #9e165f;
+  --pink-900: #851651;
+  --pink-950: #4e0d30;
+  --rose-25: #fff5f6;
+  --rose-50: #fff1f3;
+  --rose-100: #ffe4e8;
+  --rose-200: #fecdd6;
+  --rose-300: #fea3b4;
+  --rose-400: #fd6f8e;
+  --rose-500: #f63d68;
+  --rose-600: #e31b54;
+  --rose-700: #c01048;
+  --rose-800: #a11043;
+  --rose-900: #89123e;
+  --rose-950: #510b24;
+  --orange-dark-25: #fff9f5;
+  --orange-dark-50: #fff4ed;
+  --orange-dark-100: #ffe6d5;
+  --orange-dark-200: #ffd6ae;
+  --orange-dark-300: #ff9c66;
+  --orange-dark-400: #ff692e;
+  --orange-dark-500: #ff4405;
+  --orange-dark-600: #e62e05;
+  --orange-dark-700: #bc1b06;
+  --orange-dark-800: #97180c;
+  --orange-dark-900: #771a0d;
+  --orange-dark-950: #57130a;
+  --orange-25: #fefaf5;
+  --orange-50: #fef6ee;
+  --orange-100: #fdead7;
+  --orange-200: #f9dbaf;
+  --orange-300: #f7b27a;
+  --orange-400: #f38744;
+  --orange-500: #ef6820;
+  --orange-600: #e04f16;
+  --orange-700: #b93815;
+  --orange-800: #932f19;
+  --orange-900: #772917;
+  --orange-950: #511c10;
+  --yellow-25: #fefdf0;
+  --yellow-50: #fefbe8;
+  --yellow-100: #fef7c3;
+  --yellow-200: #feee95;
+  --yellow-300: #fde272;
+  --yellow-400: #fac515;
+  --yellow-500: #eaaa08;
+  --yellow-600: #ca8504;
+  --yellow-700: #a15c07;
+  --yellow-800: #854a0e;
+  --yellow-900: #713b12;
+  --yellow-950: #542c0d;
+  --gradient-skeuemorphic-gradient-border: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --gradient-gray-600-greater-500-90deg: linear-gradient(
+    90deg,
+    rgba(83, 88, 98, 1) 0%,
+    rgba(113, 118, 128, 1) 100%
+  );
+  --gradient-gray-700-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(65, 70, 81, 1) 0%,
+    rgba(83, 88, 98, 1) 100%
+  );
+  --gradient-gray-800-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(37, 43, 55, 1) 0%,
+    rgba(83, 88, 98, 1) 100%
+  );
+  --gradient-gray-800-greater-600-90deg: linear-gradient(
+    63.44deg,
+    rgba(37, 43, 55, 1) 0%,
+    rgba(83, 88, 98, 1) 100%
+  );
+  --gradient-gray-800-greater-700-265deg: linear-gradient(
+    26.57deg,
+    rgba(37, 43, 55, 1) 0%,
+    rgba(65, 70, 81, 1) 100%
+  );
+  --gradient-gray-900-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(24, 29, 39, 1) 0%,
+    rgba(83, 88, 98, 1) 100%
+  );
+  --gradient-gray-900-greater-700-45deg: linear-gradient(
+    45deg,
+    rgba(24, 29, 39, 1) 0%,
+    rgba(65, 70, 81, 1) 100%
+  );
+  --gradient-gray-50-greater-white-180deg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 250, 250, 1) 100%
+  );
+  --gradient-gray-100-greater-white-180deg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(245, 245, 245, 1) 100%
+  );
+  --gradient-gray-100-greater-25-180deg: linear-gradient(
+    180deg,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(245, 245, 245, 1) 100%
+  );
+  --gradient-gray-100-greater-50-180deg: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(245, 245, 245, 1) 100%
+  );
+  --gradient-gray-200-greater-25-180deg: linear-gradient(
+    180deg,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(233, 234, 235, 1) 100%
+  );
+  --gradient-gray-200-greater-50-180deg: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(233, 234, 235, 1) 100%
+  );
+  --gradient-gray-200-greater-100-180deg: linear-gradient(
+    180deg,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(233, 234, 235, 1) 100%
+  );
+  --gradient-brand-600-greater-500-90deg: linear-gradient(
+    90deg,
+    rgba(127, 86, 217, 1) 0%,
+    rgba(158, 119, 237, 1) 100%
+  );
+  --gradient-brand-700-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(105, 65, 198, 1) 0%,
+    rgba(127, 86, 217, 1) 100%
+  );
+  --gradient-brand-800-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(83, 56, 158, 1) 0%,
+    rgba(127, 86, 217, 1) 100%
+  );
+  --gradient-brand-800-greater-600-90deg: linear-gradient(
+    63.44deg,
+    rgba(83, 56, 158, 1) 0%,
+    rgba(127, 86, 217, 1) 100%
+  );
+  --gradient-brand-800-greater-700-265deg: linear-gradient(
+    26.57deg,
+    rgba(83, 56, 158, 1) 0%,
+    rgba(105, 65, 198, 1) 100%
+  );
+  --gradient-brand-900-greater-600-45deg: linear-gradient(
+    45deg,
+    rgba(66, 48, 125, 1) 0%,
+    rgba(127, 86, 217, 1) 100%
+  );
+  --gradient-brand-900-greater-700-45deg: linear-gradient(
+    45deg,
+    rgba(66, 48, 125, 1) 0%,
+    rgba(105, 65, 198, 1) 100%
+  );
+  --gradient-linear-01: linear-gradient(
+    180deg,
+    rgba(165, 192, 238, 1) 0%,
+    rgba(251, 197, 236, 1) 100%
+  );
+  --gradient-linear-02: linear-gradient(
+    180deg,
+    rgba(251, 194, 235, 1) 0%,
+    rgba(161, 140, 209, 1) 100%
+  );
+  --gradient-linear-03: linear-gradient(
+    180deg,
+    rgba(255, 209, 255, 1) 0%,
+    rgba(250, 208, 196, 1) 100%
+  );
+  --gradient-linear-04: linear-gradient(
+    225deg,
+    rgba(250, 208, 196, 1) 0%,
+    rgba(255, 154, 158, 1) 100%
+  );
+  --gradient-linear-05: linear-gradient(
+    270deg,
+    rgba(252, 182, 159, 1) 0%,
+    rgba(255, 236, 210, 1) 100%
+  );
+  --gradient-linear-06: linear-gradient(
+    180deg,
+    rgba(254, 207, 239, 1) 0%,
+    rgba(255, 152, 156, 1) 100%
+  );
+  --gradient-linear-07: linear-gradient(
+    45deg,
+    rgba(255, 157, 228, 1) 0%,
+    rgba(255, 234, 246, 1) 100%
+  );
+  --gradient-linear-08: linear-gradient(
+    180deg,
+    rgba(230, 222, 233, 1) 0%,
+    rgba(253, 202, 241, 1) 100%
+  );
+  --gradient-linear-09: linear-gradient(
+    45deg,
+    rgba(166, 192, 254, 1) 0%,
+    rgba(255, 234, 246, 1) 100%
+  );
+  --gradient-linear-10: linear-gradient(
+    0deg,
+    rgba(207, 199, 248, 1) 0%,
+    rgba(235, 187, 167, 1) 100%
+  );
+  --gradient-linear-11: linear-gradient(
+    135deg,
+    rgba(252, 203, 144, 1) 0%,
+    rgba(213, 126, 235, 1) 100%
+  );
+  --gradient-linear-12: linear-gradient(
+    45deg,
+    rgba(123, 106, 224, 1) 0%,
+    rgba(255, 187, 137, 1) 100%
+  );
+  --gradient-linear-13: linear-gradient(
+    135deg,
+    rgba(224, 195, 252, 1) 0%,
+    rgba(142, 197, 252, 1) 100%
+  );
+  --gradient-linear-14: linear-gradient(
+    0deg,
+    rgba(254, 214, 227, 1) 0%,
+    rgba(168, 237, 234, 1) 100%
+  );
+  --gradient-linear-15: linear-gradient(
+    135deg,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(195, 207, 226, 1) 100%
+  );
+  --gradient-linear-16: linear-gradient(
+    45deg,
+    rgba(223, 209, 197, 1) 0%,
+    rgba(255, 246, 235, 1) 100%
+  );
+  --gradient-linear-17: linear-gradient(
+    135deg,
+    rgba(255, 246, 183, 1) 0%,
+    rgba(251, 117, 138, 1) 100%
+  );
+  --gradient-linear-18: linear-gradient(
+    45deg,
+    rgba(255, 126, 199, 1) 0%,
+    rgba(255, 237, 70, 1) 100%
+  );
+  --gradient-linear-19: linear-gradient(
+    0deg,
+    rgba(254, 175, 168, 1) 0%,
+    rgba(245, 239, 239, 1) 100%
+  );
+  --gradient-linear-20: linear-gradient(
+    45deg,
+    rgba(233, 222, 250, 1) 0%,
+    rgba(255, 246, 235, 1) 100%
+  );
+  --gradient-linear-21: linear-gradient(
+    0deg,
+    rgba(255, 241, 235, 1) 0%,
+    rgba(172, 224, 249, 1) 100%
+  );
+  --gradient-linear-22: linear-gradient(
+    0deg,
+    rgba(193, 223, 196, 1) 0%,
+    rgba(222, 236, 221, 1) 100%
+  );
+  --gradient-linear-24: linear-gradient(
+    0deg,
+    rgba(172, 203, 238, 1) 0%,
+    rgba(231, 240, 253, 1) 100%
+  );
+  --gradient-linear-25: linear-gradient(
+    0deg,
+    rgba(132, 250, 176, 1) 0%,
+    rgba(172, 203, 238, 1) 100%
+  );
+  --gradient-linear-26: linear-gradient(
+    45deg,
+    rgba(57, 160, 255, 1) 0%,
+    rgba(143, 255, 133, 1) 100%
+  );
+  --gradient-linear-27: linear-gradient(
+    270deg,
+    rgba(116, 235, 213, 1) 0%,
+    rgba(159, 172, 230, 1) 100%
+  );
+  --gradient-linear-29: linear-gradient(
+    0deg,
+    rgba(152, 144, 227, 1) 0%,
+    rgba(177, 244, 207, 1) 100%
+  );
+  --gradient-linear-30: linear-gradient(
+    45deg,
+    rgba(124, 218, 218, 1) 0%,
+    rgba(246, 151, 170, 1) 100%
+  );
+  --gradient-linear-31: linear-gradient(
+    45deg,
+    rgba(177, 255, 150, 1) 0%,
+    rgba(255, 173, 247, 1) 100%
+  );
+  --gradient-linear-32: linear-gradient(
+    0deg,
+    rgba(150, 251, 196, 1) 0%,
+    rgba(249, 245, 134, 1) 100%
+  );
+  --gradient-linear-33: linear-gradient(
+    45deg,
+    rgba(77, 239, 142, 1) 0%,
+    rgba(255, 235, 58, 1) 100%
+  );
+  --gradient-linear-34: linear-gradient(
+    135deg,
+    rgba(240, 255, 0, 1) 0%,
+    rgba(88, 207, 251, 1) 100%
+  );
+  --gradient-linear-35: linear-gradient(
+    0deg,
+    rgba(209, 253, 255, 1) 0%,
+    rgba(253, 219, 146, 1) 100%
+  );
+  --gradient-linear-36: linear-gradient(
+    0deg,
+    rgba(235, 192, 253, 1) 0%,
+    rgba(217, 222, 216, 1) 100%
+  );
+  --gradient-linear-37: linear-gradient(
+    45deg,
+    rgba(255, 164, 246, 1) 0%,
+    rgba(183, 220, 255, 1) 100%
+  );
+  --gradient-linear-38: linear-gradient(
+    0deg,
+    rgba(205, 156, 242, 1) 0%,
+    rgba(246, 243, 255, 1) 100%
+  );
+  --gradient-linear-39: linear-gradient(
+    -45deg,
+    rgba(245, 200, 245, 1) 0%,
+    rgba(218, 221, 250, 1) 83.85416865348816%
+  );
+  --gradient-linear-40: linear-gradient(
+    0deg,
+    rgba(230, 222, 233, 1) 0%,
+    rgba(189, 194, 232, 1) 100%
+  );
+  --gradient-linear-41: linear-gradient(
+    0deg,
+    rgba(106, 133, 182, 1) 0%,
+    rgba(186, 200, 224, 1) 100%
+  );
+  --gradient-linear-42: linear-gradient(
+    45deg,
+    rgba(139, 139, 139, 1) 0%,
+    rgba(234, 234, 234, 1) 100%
+  );
+  --gradient-linear-43: linear-gradient(
+    135deg,
+    rgba(226, 176, 255, 1) 0%,
+    rgba(159, 68, 211, 1) 100%
+  );
+  --gradient-linear-44: linear-gradient(
+    135deg,
+    rgba(206, 159, 252, 1) 0%,
+    rgba(115, 103, 240, 1) 100%
+  );
+  --gradient-linear-45: linear-gradient(
+    135deg,
+    rgba(114, 237, 242, 1) 0%,
+    rgba(81, 81, 229, 1) 100%
+  );
+  --gradient-linear-46: linear-gradient(
+    0deg,
+    rgba(163, 189, 237, 1) 0%,
+    rgba(105, 145, 199, 1) 100%
+  );
+  --gradient-linear-47: linear-gradient(
+    0deg,
+    rgba(251, 200, 212, 1) 0%,
+    rgba(151, 149, 240, 1) 100%
+  );
+  --gradient-linear-48: linear-gradient(
+    0deg,
+    rgba(167, 166, 203, 1) 0%,
+    rgba(137, 137, 186, 1) 100%
+  );
+  --gradient-linear-49: linear-gradient(
+    0deg,
+    rgba(217, 175, 217, 1) 0%,
+    rgba(151, 217, 225, 1) 100%
+  );
+  --gradient-linear-50: linear-gradient(
+    135deg,
+    rgba(129, 255, 239, 1) 0%,
+    rgba(240, 103, 180, 1) 100%
+  );
+  --gradient-linear-51: linear-gradient(
+    135deg,
+    rgba(220, 176, 237, 1) 0%,
+    rgba(153, 153, 204, 1) 100%
+  );
+  --gradient-linear-52: linear-gradient(
+    135deg,
+    rgba(255, 245, 195, 1) 0%,
+    rgba(148, 82, 165, 1) 100%
+  );
+  --gradient-linear-53: linear-gradient(
+    135deg,
+    rgba(241, 202, 116, 1) 0%,
+    rgba(166, 77, 182, 1) 100%
+  );
+  --gradient-linear-54: linear-gradient(
+    45deg,
+    rgba(77, 106, 208, 1) 0%,
+    rgba(255, 157, 126, 1) 100%
+  );
+  --gradient-linear-55: linear-gradient(
+    135deg,
+    rgba(255, 207, 113, 1) 0%,
+    rgba(35, 118, 221, 1) 100%
+  );
+  --gradient-linear-56: linear-gradient(
+    135deg,
+    rgba(232, 208, 122, 1) 0%,
+    rgba(83, 18, 214, 1) 100%
+  );
+  --gradient-linear-57: linear-gradient(
+    180deg,
+    rgba(191, 217, 254, 1) 0%,
+    rgba(223, 137, 181, 1) 100%
+  );
+  --gradient-linear-58: linear-gradient(
+    0deg,
+    rgba(250, 113, 205, 1) 0%,
+    rgba(196, 113, 245, 1) 100%
+  );
+  --gradient-linear-59: linear-gradient(
+    135deg,
+    rgba(67, 203, 255, 1) 0%,
+    rgba(151, 8, 204, 1) 100%
+  );
+  --gradient-linear-60: linear-gradient(
+    180deg,
+    rgba(117, 121, 255, 1) 0%,
+    rgba(178, 36, 239, 1) 100%
+  );
+  --gradient-linear-61: linear-gradient(
+    45deg,
+    rgba(173, 0, 254, 1) 0%,
+    rgba(0, 224, 238, 1) 100%
+  );
+  --gradient-linear-62: linear-gradient(
+    135deg,
+    rgba(137, 247, 254, 1) 0%,
+    rgba(102, 166, 255, 1) 100%
+  );
+  --gradient-linear-63: linear-gradient(
+    0deg,
+    rgba(0, 158, 253, 1) 0%,
+    rgba(42, 245, 152, 1) 100%
+  );
+  --gradient-linear-64: linear-gradient(
+    45deg,
+    rgba(255, 184, 0, 1) 0%,
+    rgba(255, 245, 0, 1) 100%
+  );
+  --gradient-linear-65: linear-gradient(
+    135deg,
+    rgba(255, 168, 168, 1) 0%,
+    rgba(252, 255, 0, 1) 100%
+  );
+  --gradient-linear-66: linear-gradient(
+    45deg,
+    rgba(255, 122, 0, 1) 0%,
+    rgba(255, 212, 57, 1) 100%
+  );
+  --gradient-linear-67: linear-gradient(
+    135deg,
+    rgba(255, 211, 165, 1) 0%,
+    rgba(253, 101, 133, 1) 100%
+  );
+  --gradient-linear-68: linear-gradient(
+    180deg,
+    rgba(249, 212, 35, 1) 0%,
+    rgba(225, 79, 173, 1) 100%
+  );
+  --gradient-linear-69: linear-gradient(
+    135deg,
+    rgba(247, 79, 172, 1) 0%,
+    rgba(252, 178, 79, 1) 100%
+  );
+  --gradient-linear-70: linear-gradient(
+    135deg,
+    rgba(244, 144, 98, 1) 0%,
+    rgba(253, 55, 31, 1) 100%
+  );
+  --gradient-linear-71: linear-gradient(
+    45deg,
+    rgba(255, 108, 108, 1) 0%,
+    rgba(221, 123, 255, 1) 100%
+  );
+  --gradient-linear-72: linear-gradient(
+    135deg,
+    rgba(249, 119, 148, 1) 0%,
+    rgba(98, 58, 162, 1) 100%
+  );
+  --gradient-linear-73: linear-gradient(
+    180deg,
+    rgba(197, 105, 207, 1) 0%,
+    rgba(238, 96, 156, 1) 100%
+  );
+  --gradient-linear-74: linear-gradient(
+    0deg,
+    rgba(199, 234, 253, 1) 0%,
+    rgba(232, 25, 139, 1) 100%
+  );
+  --gradient-linear-75: linear-gradient(
+    135deg,
+    rgba(240, 147, 251, 1) 0%,
+    rgba(245, 87, 108, 1) 100%
+  );
+  --gradient-linear-76: linear-gradient(
+    135deg,
+    rgba(246, 206, 236, 1) 0%,
+    rgba(217, 57, 205, 1) 100%
+  );
+  --gradient-linear-77: linear-gradient(
+    135deg,
+    rgba(238, 154, 229, 1) 0%,
+    rgba(89, 97, 249, 1) 100%
+  );
+  --gradient-linear-78: linear-gradient(
+    270deg,
+    rgba(106, 17, 203, 1) 0%,
+    rgba(37, 117, 252, 1) 100%
+  );
+  --gradient-linear-79: linear-gradient(
+    45deg,
+    rgba(0, 23, 228, 1) 0%,
+    rgba(55, 147, 255, 1) 100%
+  );
+  --gradient-linear-80: linear-gradient(
+    0deg,
+    rgba(0, 198, 251, 1) 0%,
+    rgba(0, 91, 234, 1) 100%
+  );
+  --gradient-linear-81: linear-gradient(
+    45deg,
+    rgba(75, 115, 255, 1) 0%,
+    rgba(124, 247, 255, 1) 100%
+  );
+  --gradient-linear-82: linear-gradient(
+    135deg,
+    rgba(94, 252, 232, 1) 0%,
+    rgba(115, 110, 254, 1) 100%
+  );
+  --gradient-linear-83: linear-gradient(
+    0deg,
+    rgba(112, 40, 228, 1) 0%,
+    rgba(229, 178, 202, 1) 100%
+  );
+  --gradient-linear-84: linear-gradient(
+    90deg,
+    rgba(120, 115, 245, 1) 0%,
+    rgba(236, 119, 171, 1) 100%
+  );
+  --gradient-linear-85: linear-gradient(
+    135deg,
+    rgba(176, 30, 255, 1) 0%,
+    rgba(225, 70, 124, 1) 100%
+  );
+  --gradient-linear-86: linear-gradient(
+    45deg,
+    rgba(208, 121, 238, 1) 0%,
+    rgba(138, 136, 251, 1) 100%
+  );
+  --gradient-linear-87: linear-gradient(
+    135deg,
+    rgba(201, 159, 255, 1) 0%,
+    rgba(152, 30, 210, 1) 100%
+  );
+  --gradient-linear-88: linear-gradient(
+    0deg,
+    rgba(155, 35, 234, 1) 0%,
+    rgba(95, 114, 189, 1) 100%
+  );
+  --gradient-linear-89: linear-gradient(
+    135deg,
+    rgba(179, 159, 255, 1) 0%,
+    rgba(106, 30, 210, 1) 100%
+  );
+  --gradient-linear-90: linear-gradient(
+    45deg,
+    rgba(67, 0, 177, 1) 0%,
+    rgba(165, 49, 220, 1) 100%
+  );
+  --gradient-linear-91: linear-gradient(
+    -45deg,
+    rgba(118, 75, 162, 1) 0%,
+    rgba(102, 126, 234, 1) 100%
+  );
+  --avatar-user-square-olivia-rhye: undefined;
+  --avatar-user-square-olivia-rhye-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-olivia-rhye-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-phoenix-baker: undefined;
+  --avatar-user-square-phoenix-baker-color-background: linear-gradient(
+    to left,
+    #d6cfb7,
+    #d6cfb7
+  );
+  --avatar-user-square-phoenix-baker-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lana-steiner: undefined;
+  --avatar-user-square-lana-steiner-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-lana-steiner-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-demi-wilkinson: undefined;
+  --avatar-user-square-demi-wilkinson-color-background: linear-gradient(
+    to left,
+    #dadcd6,
+    #dadcd6
+  );
+  --avatar-user-square-demi-wilkinson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-candice-wu: undefined;
+  --avatar-user-square-candice-wu-color-background: linear-gradient(
+    to left,
+    #d9d0e6,
+    #d9d0e6
+  );
+  --avatar-user-square-candice-wu-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-natali-craig: undefined;
+  --avatar-user-square-natali-craig-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-natali-craig-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-drew-cano: undefined;
+  --avatar-user-square-drew-cano-color-background: linear-gradient(
+    to left,
+    #d9e5cc,
+    #d9e5cc
+  );
+  --avatar-user-square-drew-cano-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-orlando-diggs: undefined;
+  --avatar-user-square-orlando-diggs-color-background: linear-gradient(
+    to left,
+    #e5ddce,
+    #e5ddce
+  );
+  --avatar-user-square-orlando-diggs-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-andi-lane: undefined;
+  --avatar-user-square-andi-lane-color-background: linear-gradient(
+    to left,
+    #dcccbd,
+    #dcccbd
+  );
+  --avatar-user-square-andi-lane-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kate-morrison: undefined;
+  --avatar-user-square-kate-morrison-color-background: linear-gradient(
+    to left,
+    #cccbdc,
+    #cccbdc
+  );
+  --avatar-user-square-kate-morrison-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-koray-okumus: undefined;
+  --avatar-user-square-koray-okumus-color-background: linear-gradient(
+    to left,
+    #e5cfe7,
+    #e5cfe7
+  );
+  --avatar-user-square-koray-okumus-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ava-wright: undefined;
+  --avatar-user-square-ava-wright-color-background: linear-gradient(
+    to left,
+    #ddd0be,
+    #ddd0be
+  );
+  --avatar-user-square-ava-wright-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-eve-leroy: undefined;
+  --avatar-user-square-eve-leroy-color-background: linear-gradient(
+    to left,
+    #dfc3cd,
+    #dfc3cd
+  );
+  --avatar-user-square-eve-leroy-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zahir-mays: undefined;
+  --avatar-user-square-zahir-mays-color-background: linear-gradient(
+    to left,
+    #d3d6e9,
+    #d3d6e9
+  );
+  --avatar-user-square-zahir-mays-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-joshua-wilson: undefined;
+  --avatar-user-square-joshua-wilson-color-background: linear-gradient(
+    to left,
+    #d3dccf,
+    #d3dccf
+  );
+  --avatar-user-square-joshua-wilson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-rene-wells: undefined;
+  --avatar-user-square-rene-wells-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-rene-wells-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lori-bryson: undefined;
+  --avatar-user-square-lori-bryson-color-background: linear-gradient(
+    to left,
+    #dfc3cd,
+    #dfc3cd
+  );
+  --avatar-user-square-lori-bryson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-anaiah-whitten: undefined;
+  --avatar-user-square-anaiah-whitten-color-background: linear-gradient(
+    to left,
+    #d9d0e6,
+    #d9d0e6
+  );
+  --avatar-user-square-anaiah-whitten-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-noah-pierre: undefined;
+  --avatar-user-square-noah-pierre-color-background: linear-gradient(
+    to left,
+    #c1d3bb,
+    #c1d3bb
+  );
+  --avatar-user-square-noah-pierre-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-katherine-moss: undefined;
+  --avatar-user-square-katherine-moss-color-background: linear-gradient(
+    to left,
+    #c0c6dd,
+    #c0c6dd
+  );
+  --avatar-user-square-katherine-moss-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-mollie-hall: undefined;
+  --avatar-user-square-mollie-hall-color-background: linear-gradient(
+    to left,
+    #dfc3cd,
+    #dfc3cd
+  );
+  --avatar-user-square-mollie-hall-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-eduard-franz: undefined;
+  --avatar-user-square-eduard-franz-color-background: linear-gradient(
+    to left,
+    #e5ddce,
+    #e5ddce
+  );
+  --avatar-user-square-eduard-franz-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-alec-whitten: undefined;
+  --avatar-user-square-alec-whitten-color-background: linear-gradient(
+    to left,
+    #d8ddc0,
+    #d8ddc0
+  );
+  --avatar-user-square-alec-whitten-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-eva-bond: undefined;
+  --avatar-user-square-eva-bond-color-background: linear-gradient(
+    to left,
+    #e8d7ea,
+    #e8d7ea
+  );
+  --avatar-user-square-eva-bond-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-sophia-perez: undefined;
+  --avatar-user-square-sophia-perez-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-sophia-perez-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lyle-kauffman: undefined;
+  --avatar-user-square-lyle-kauffman-color-background: linear-gradient(
+    to left,
+    #d6b3b3,
+    #d6b3b3
+  );
+  --avatar-user-square-lyle-kauffman-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kelly-williams: undefined;
+  --avatar-user-square-kelly-williams-color-background: linear-gradient(
+    to left,
+    #dadcd6,
+    #dadcd6
+  );
+  --avatar-user-square-kelly-williams-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lucy-bond: undefined;
+  --avatar-user-square-lucy-bond-color-background: linear-gradient(
+    to left,
+    #e8d7ea,
+    #e8d7ea
+  );
+  --avatar-user-square-lucy-bond-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-alisa-hester: undefined;
+  --avatar-user-square-alisa-hester-color-background: linear-gradient(
+    to left,
+    #e5d1e6,
+    #e5d1e6
+  );
+  --avatar-user-square-alisa-hester-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-rosalee-melvin: undefined;
+  --avatar-user-square-rosalee-melvin-color-background: linear-gradient(
+    to left,
+    #ddd0be,
+    #ddd0be
+  );
+  --avatar-user-square-rosalee-melvin-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-loki-bright: undefined;
+  --avatar-user-square-loki-bright-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-loki-bright-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-aliah-lane: undefined;
+  --avatar-user-square-aliah-lane-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-aliah-lane-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-anita-cruz: undefined;
+  --avatar-user-square-anita-cruz-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-anita-cruz-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kari-rasmussen: undefined;
+  --avatar-user-square-kari-rasmussen-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-kari-rasmussen-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nala-goins: undefined;
+  --avatar-user-square-nala-goins-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-nala-goins-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-amelie-laurent: undefined;
+  --avatar-user-square-amelie-laurent-color-background: linear-gradient(
+    to left,
+    #ddc0ce,
+    #ddc0ce
+  );
+  --avatar-user-square-amelie-laurent-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-sienna-hewitt: undefined;
+  --avatar-user-square-sienna-hewitt-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-sienna-hewitt-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ammar-foley: undefined;
+  --avatar-user-square-ammar-foley-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-ammar-foley-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-pippa-wilkinson: undefined;
+  --avatar-user-square-pippa-wilkinson-color-background: linear-gradient(
+    to left,
+    #ced1e5,
+    #ced1e5
+  );
+  --avatar-user-square-pippa-wilkinson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-olly-schroeder: undefined;
+  --avatar-user-square-olly-schroeder-color-background: linear-gradient(
+    to left,
+    #ddd0be,
+    #ddd0be
+  );
+  --avatar-user-square-olly-schroeder-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-mathilde-lewis: undefined;
+  --avatar-user-square-mathilde-lewis-color-background: linear-gradient(
+    to left,
+    #dfc2c0,
+    #dfc2c0
+  );
+  --avatar-user-square-mathilde-lewis-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-julius-vaughan: undefined;
+  --avatar-user-square-julius-vaughan-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-julius-vaughan-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zaid-schwartz: undefined;
+  --avatar-user-square-zaid-schwartz-color-background: linear-gradient(
+    to left,
+    #d1e3d9,
+    #d1e3d9
+  );
+  --avatar-user-square-zaid-schwartz-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lily-rose-chedjou: undefined;
+  --avatar-user-square-lily-rose-chedjou-color-background: linear-gradient(
+    to left,
+    #e5ddce,
+    #e5ddce
+  );
+  --avatar-user-square-lily-rose-chedjou-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-caitlyn-king: undefined;
+  --avatar-user-square-caitlyn-king-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-caitlyn-king-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-fleur-cook: undefined;
+  --avatar-user-square-fleur-cook-color-background: linear-gradient(
+    to left,
+    #dadcd6,
+    #dadcd6
+  );
+  --avatar-user-square-fleur-cook-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-marco-kelly: undefined;
+  --avatar-user-square-marco-kelly-color-background: linear-gradient(
+    to left,
+    #e3c6d1,
+    #e3c6d1
+  );
+  --avatar-user-square-marco-kelly-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-lulu-meyers: undefined;
+  --avatar-user-square-lulu-meyers-color-background: linear-gradient(
+    to left,
+    #d9d0e6,
+    #d9d0e6
+  );
+  --avatar-user-square-lulu-meyers-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-mikey-lawrence: undefined;
+  --avatar-user-square-mikey-lawrence-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-mikey-lawrence-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-freya-browning: undefined;
+  --avatar-user-square-freya-browning-color-background: linear-gradient(
+    to left,
+    #dfc2c0,
+    #dfc2c0
+  );
+  --avatar-user-square-freya-browning-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-florence-shaw: undefined;
+  --avatar-user-square-florence-shaw-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-florence-shaw-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ashwin-santiago: undefined;
+  --avatar-user-square-ashwin-santiago-color-background: linear-gradient(
+    to left,
+    #d1e2e7,
+    #d1e2e7
+  );
+  --avatar-user-square-ashwin-santiago-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nikolas-gibbons: undefined;
+  --avatar-user-square-nikolas-gibbons-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-nikolas-gibbons-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-adriana-osullivan: undefined;
+  --avatar-user-square-adriana-osullivan-color-background: linear-gradient(
+    to left,
+    #e5d1e6,
+    #e5d1e6
+  );
+  --avatar-user-square-adriana-osullivan-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ethan-campbell: undefined;
+  --avatar-user-square-ethan-campbell-color-background: linear-gradient(
+    to left,
+    #dbcabd,
+    #dbcabd
+  );
+  --avatar-user-square-ethan-campbell-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jaya-willis: undefined;
+  --avatar-user-square-jaya-willis-color-background: linear-gradient(
+    to left,
+    #c6d0cb,
+    #c6d0cb
+  );
+  --avatar-user-square-jaya-willis-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jessie-meyton: undefined;
+  --avatar-user-square-jessie-meyton-color-background: linear-gradient(
+    to left,
+    #d3d6e9,
+    #d3d6e9
+  );
+  --avatar-user-square-jessie-meyton-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-hasan-johns: undefined;
+  --avatar-user-square-hasan-johns-color-background: linear-gradient(
+    to left,
+    #d8ddc0,
+    #d8ddc0
+  );
+  --avatar-user-square-hasan-johns-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-priya-shepard: undefined;
+  --avatar-user-square-priya-shepard-color-background: linear-gradient(
+    to left,
+    #bfd6d7,
+    #bfd6d7
+  );
+  --avatar-user-square-priya-shepard-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-levi-rocha: undefined;
+  --avatar-user-square-levi-rocha-color-background: linear-gradient(
+    to left,
+    #dfc2c0,
+    #dfc2c0
+  );
+  --avatar-user-square-levi-rocha-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zahra-christensen: undefined;
+  --avatar-user-square-zahra-christensen-color-background: linear-gradient(
+    to left,
+    #d3dccf,
+    #d3dccf
+  );
+  --avatar-user-square-zahra-christensen-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-stefan-sears: undefined;
+  --avatar-user-square-stefan-sears-color-background: linear-gradient(
+    to left,
+    #d6cfb7,
+    #d6cfb7
+  );
+  --avatar-user-square-stefan-sears-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ali-mahdi: undefined;
+  --avatar-user-square-ali-mahdi-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-ali-mahdi-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-riley-omoore: undefined;
+  --avatar-user-square-riley-omoore-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-riley-omoore-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-liam-hood: undefined;
+  --avatar-user-square-liam-hood-color-background: linear-gradient(
+    to left,
+    #dfc3cd,
+    #dfc3cd
+  );
+  --avatar-user-square-liam-hood-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-brianna-ware: undefined;
+  --avatar-user-square-brianna-ware-color-background: linear-gradient(
+    to left,
+    #d6b3b3,
+    #d6b3b3
+  );
+  --avatar-user-square-brianna-ware-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-youssef-roberson: undefined;
+  --avatar-user-square-youssef-roberson-color-background: linear-gradient(
+    to left,
+    #d8e0cf,
+    #d8e0cf
+  );
+  --avatar-user-square-youssef-roberson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ashton-blackwell: undefined;
+  --avatar-user-square-ashton-blackwell-color-background: linear-gradient(
+    to left,
+    #d3d6e9,
+    #d3d6e9
+  );
+  --avatar-user-square-ashton-blackwell-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-cohen-lozano: undefined;
+  --avatar-user-square-cohen-lozano-color-background: linear-gradient(
+    to left,
+    #c6d0cb,
+    #c6d0cb
+  );
+  --avatar-user-square-cohen-lozano-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-owen-garcia: undefined;
+  --avatar-user-square-owen-garcia-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-owen-garcia-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-isla-allison: undefined;
+  --avatar-user-square-isla-allison-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-isla-allison-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-elisa-nishikawa: undefined;
+  --avatar-user-square-elisa-nishikawa-color-background: linear-gradient(
+    to left,
+    #d3dccf,
+    #d3dccf
+  );
+  --avatar-user-square-elisa-nishikawa-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-erica-wyatt: undefined;
+  --avatar-user-square-erica-wyatt-color-background: linear-gradient(
+    to left,
+    #e5cfe7,
+    #e5cfe7
+  );
+  --avatar-user-square-erica-wyatt-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-harry-bender: undefined;
+  --avatar-user-square-harry-bender-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-harry-bender-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-cameron-yang: undefined;
+  --avatar-user-square-cameron-yang-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-cameron-yang-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-noel-baldwin: undefined;
+  --avatar-user-square-noel-baldwin-color-background: linear-gradient(
+    to left,
+    #e3d2c6,
+    #e3d2c6
+  );
+  --avatar-user-square-noel-baldwin-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kyla-clay: undefined;
+  --avatar-user-square-kyla-clay-color-background: linear-gradient(
+    to left,
+    #d9d0e6,
+    #d9d0e6
+  );
+  --avatar-user-square-kyla-clay-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-molly-vaughan: undefined;
+  --avatar-user-square-molly-vaughan-color-background: linear-gradient(
+    to left,
+    #c1d3bb,
+    #c1d3bb
+  );
+  --avatar-user-square-molly-vaughan-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jonathan-kelly: undefined;
+  --avatar-user-square-jonathan-kelly-color-background: linear-gradient(
+    to left,
+    #e5cfe7,
+    #e5cfe7
+  );
+  --avatar-user-square-jonathan-kelly-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-amanda-lowery: undefined;
+  --avatar-user-square-amanda-lowery-color-background: linear-gradient(
+    to left,
+    #e0c1c3,
+    #e0c1c3
+  );
+  --avatar-user-square-amanda-lowery-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kaitlin-hale: undefined;
+  --avatar-user-square-kaitlin-hale-color-background: linear-gradient(
+    to left,
+    #ddd0be,
+    #ddd0be
+  );
+  --avatar-user-square-kaitlin-hale-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-maxwell-tan: undefined;
+  --avatar-user-square-maxwell-tan-color-background: linear-gradient(
+    to left,
+    #c2bfd3,
+    #c2bfd3
+  );
+  --avatar-user-square-maxwell-tan-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-elsie-roy: undefined;
+  --avatar-user-square-elsie-roy-color-background: linear-gradient(
+    to left,
+    #cbe1ef,
+    #cbe1ef
+  );
+  --avatar-user-square-elsie-roy-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zuzanna-burke: undefined;
+  --avatar-user-square-zuzanna-burke-color-background: linear-gradient(
+    to left,
+    #d6b3b3,
+    #d6b3b3
+  );
+  --avatar-user-square-zuzanna-burke-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-maddison-gillespie: undefined;
+  --avatar-user-square-maddison-gillespie-color-background: linear-gradient(
+    to left,
+    #e4cbcc,
+    #e4cbcc
+  );
+  --avatar-user-square-maddison-gillespie-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kaden-scott: undefined;
+  --avatar-user-square-kaden-scott-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-kaden-scott-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-adil-floyd: undefined;
+  --avatar-user-square-adil-floyd-color-background: linear-gradient(
+    to left,
+    #e5ddce,
+    #e5ddce
+  );
+  --avatar-user-square-adil-floyd-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-marvin-robbins: undefined;
+  --avatar-user-square-marvin-robbins-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-marvin-robbins-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-belle-woods: undefined;
+  --avatar-user-square-belle-woods-color-background: linear-gradient(
+    to left,
+    #d7cde5,
+    #d7cde5
+  );
+  --avatar-user-square-belle-woods-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-sarah-page: undefined;
+  --avatar-user-square-sarah-page-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-sarah-page-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-aysha-becker: undefined;
+  --avatar-user-square-aysha-becker-color-background: linear-gradient(
+    to left,
+    #d1e2e7,
+    #d1e2e7
+  );
+  --avatar-user-square-aysha-becker-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-blake-riley: undefined;
+  --avatar-user-square-blake-riley-color-background: linear-gradient(
+    to left,
+    #d6cfb7,
+    #d6cfb7
+  );
+  --avatar-user-square-blake-riley-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jay-shepard: undefined;
+  --avatar-user-square-jay-shepard-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-jay-shepard-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-rhea-levine: undefined;
+  --avatar-user-square-rhea-levine-color-background: linear-gradient(
+    to left,
+    #d3d6e9,
+    #d3d6e9
+  );
+  --avatar-user-square-rhea-levine-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-franklin-mays: undefined;
+  --avatar-user-square-franklin-mays-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-franklin-mays-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-kelsey-lowe: undefined;
+  --avatar-user-square-kelsey-lowe-color-background: linear-gradient(
+    to left,
+    #c9c6d0,
+    #c9c6d0
+  );
+  --avatar-user-square-kelsey-lowe-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-billie-wright: undefined;
+  --avatar-user-square-billie-wright-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-billie-wright-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-madeleine-pitts: undefined;
+  --avatar-user-square-madeleine-pitts-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-madeleine-pitts-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-frank-whitaker: undefined;
+  --avatar-user-square-frank-whitaker-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-frank-whitaker-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-dillan-nguyen: undefined;
+  --avatar-user-square-dillan-nguyen-color-background: linear-gradient(
+    to left,
+    #dfc2c0,
+    #dfc2c0
+  );
+  --avatar-user-square-dillan-nguyen-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-katy-fuller: undefined;
+  --avatar-user-square-katy-fuller-color-background: linear-gradient(
+    to left,
+    #d1e3d9,
+    #d1e3d9
+  );
+  --avatar-user-square-katy-fuller-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nicolas-trevino: undefined;
+  --avatar-user-square-nicolas-trevino-color-background: linear-gradient(
+    to left,
+    #d6b3b3,
+    #d6b3b3
+  );
+  --avatar-user-square-nicolas-trevino-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-owen-harding: undefined;
+  --avatar-user-square-owen-harding-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-owen-harding-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ava-bentley: undefined;
+  --avatar-user-square-ava-bentley-color-background: linear-gradient(
+    to left,
+    #ccdde1,
+    #ccdde1
+  );
+  --avatar-user-square-ava-bentley-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-harriet-rojas: undefined;
+  --avatar-user-square-harriet-rojas-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-harriet-rojas-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-ethan-valdez: undefined;
+  --avatar-user-square-ethan-valdez-color-background: linear-gradient(
+    to left,
+    #d6e7ea,
+    #d6e7ea
+  );
+  --avatar-user-square-ethan-valdez-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-abraham-baker: undefined;
+  --avatar-user-square-abraham-baker-color-background: linear-gradient(
+    to left,
+    #d1d2e3,
+    #d1d2e3
+  );
+  --avatar-user-square-abraham-baker-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-sally-mason: undefined;
+  --avatar-user-square-sally-mason-color-background: linear-gradient(
+    to left,
+    #ecdddc,
+    #ecdddc
+  );
+  --avatar-user-square-sally-mason-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jayden-moss: undefined;
+  --avatar-user-square-jayden-moss-color-background: linear-gradient(
+    to left,
+    #dfc3cd,
+    #dfc3cd
+  );
+  --avatar-user-square-jayden-moss-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-isobel-fuller: undefined;
+  --avatar-user-square-isobel-fuller-color-background: linear-gradient(
+    to left,
+    #e9dcbb,
+    #e9dcbb
+  );
+  --avatar-user-square-isobel-fuller-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jackson-reed: undefined;
+  --avatar-user-square-jackson-reed-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-jackson-reed-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-courtney-turner: undefined;
+  --avatar-user-square-courtney-turner-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-courtney-turner-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-jordan-burgess: undefined;
+  --avatar-user-square-jordan-burgess-color-background: linear-gradient(
+    to left,
+    #c6d0cb,
+    #c6d0cb
+  );
+  --avatar-user-square-jordan-burgess-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-bailey-richards: undefined;
+  --avatar-user-square-bailey-richards-color-background: linear-gradient(
+    to left,
+    #e8d7ea,
+    #e8d7ea
+  );
+  --avatar-user-square-bailey-richards-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-rayhan-zua: undefined;
+  --avatar-user-square-rayhan-zua-color-background: linear-gradient(
+    to left,
+    #c1debc,
+    #c1debc
+  );
+  --avatar-user-square-rayhan-zua-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nic-fassbender: undefined;
+  --avatar-user-square-nic-fassbender-color-background: linear-gradient(
+    to left,
+    #cfcbdc,
+    #cfcbdc
+  );
+  --avatar-user-square-nic-fassbender-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-leyton-fields: undefined;
+  --avatar-user-square-leyton-fields-color-background: linear-gradient(
+    to left,
+    #cfd4c6,
+    #cfd4c6
+  );
+  --avatar-user-square-leyton-fields-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-bec-ferguson: undefined;
+  --avatar-user-square-bec-ferguson-color-background: linear-gradient(
+    to left,
+    #e7d3d7,
+    #e7d3d7
+  );
+  --avatar-user-square-bec-ferguson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nicolas-wang: undefined;
+  --avatar-user-square-nicolas-wang-color-background: linear-gradient(
+    to left,
+    #f1e7da,
+    #f1e7da
+  );
+  --avatar-user-square-nicolas-wang-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zaynab-donnelly: undefined;
+  --avatar-user-square-zaynab-donnelly-color-background: linear-gradient(
+    to left,
+    #c6d0cb,
+    #c6d0cb
+  );
+  --avatar-user-square-zaynab-donnelly-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-genevieve-mclean: undefined;
+  --avatar-user-square-genevieve-mclean-color-background: linear-gradient(
+    to left,
+    #bbc0dd,
+    #bbc0dd
+  );
+  --avatar-user-square-genevieve-mclean-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-adem-lane: undefined;
+  --avatar-user-square-adem-lane-color-background: linear-gradient(
+    to left,
+    #c7d1b0,
+    #c7d1b0
+  );
+  --avatar-user-square-adem-lane-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-nicola-harris: undefined;
+  --avatar-user-square-nicola-harris-color-background: linear-gradient(
+    to left,
+    #ddd0be,
+    #ddd0be
+  );
+  --avatar-user-square-nicola-harris-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-zara-bush: undefined;
+  --avatar-user-square-zara-bush-color-background: linear-gradient(
+    to left,
+    #e5d1e6,
+    #e5d1e6
+  );
+  --avatar-user-square-zara-bush-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-byron-robertson: undefined;
+  --avatar-user-square-byron-robertson-color-background: linear-gradient(
+    to left,
+    #dbcabd,
+    #dbcabd
+  );
+  --avatar-user-square-byron-robertson-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-square-rhianna-shepard: undefined;
+  --avatar-user-square-rhianna-shepard-color-background: linear-gradient(
+    to left,
+    #d7e3e8,
+    #d7e3e8
+  );
+  --avatar-user-square-rhianna-shepard-neutral-background: linear-gradient(
+    to left,
+    #e0e0e0,
+    #e0e0e0
+  );
+  --avatar-user-portrait-alisa-hester: undefined;
+  --avatar-user-portrait-rich-wilson: undefined;
+  --avatar-user-portrait-annie-stanley: undefined;
+  --avatar-user-portrait-johnny-bell: undefined;
+  --avatar-user-portrait-mia-ward: undefined;
+  --avatar-user-portrait-archie-young: undefined;
+  --avatar-user-portrait-amanda-carr: undefined;
+  --avatar-user-portrait-megan-sims: undefined;
+  --avatar-user-portrait-ryan-fox: undefined;
+  --avatar-user-portrait-mason-phillips: undefined;
+  --avatar-user-portrait-zoe-silva: undefined;
+  --avatar-user-portrait-annie-simmons: undefined;
+  --avatar-user-portrait-harley-white: undefined;
+  --avatar-user-portrait-amelie-cooper: undefined;
+  --avatar-user-portrait-evelyn-harrison: undefined;
+  --avatar-user-portrait-abby-smith: undefined;
+  --avatar-user-portrait-isla-anderson: undefined;
+  --avatar-user-portrait-alex-holland: undefined;
+  --avatar-user-portrait-zachary-collins: undefined;
+  --avatar-user-portrait-nic-davidson: undefined;
+  --avatar-user-portrait-josh-knight: undefined;
+  --avatar-user-portrait-kelly-myer: undefined;
+  --avatar-user-portrait-laura-palmer: undefined;
+  --avatar-user-portrait-mollie-morgan: undefined;
+  --avatar-user-portrait-heather-kelly: undefined;
+  --avatar-user-portrait-james-dunn: undefined;
+  --avatar-user-portrait-elijah-johnson: undefined;
+  --avatar-user-portrait-sara-woodman: undefined;
+  --avatar-company-logo-3portals: undefined;
+  --avatar-company-logo-45-degrees: undefined;
+  --avatar-company-logo-acme-corp: undefined;
+  --avatar-company-logo-alphawave: undefined;
+  --avatar-company-logo-altshift: undefined;
+  --avatar-company-logo-biosynthesis: undefined;
+  --avatar-company-logo-boltshift: undefined;
+  --avatar-company-logo-buildingblocks: undefined;
+  --avatar-company-logo-calescence: undefined;
+  --avatar-company-logo-capsule: undefined;
+  --avatar-company-logo-catalog: undefined;
+  --avatar-company-logo-chromatools: undefined;
+  --avatar-company-logo-clandestine: undefined;
+  --avatar-company-logo-cloudwatch: undefined;
+  --avatar-company-logo-codecraft: undefined;
+  --avatar-company-logo-commandr: undefined;
+  --avatar-company-logo-constellation: undefined;
+  --avatar-company-logo-contrastai: undefined;
+  --avatar-company-logo-convergence: undefined;
+  --avatar-company-logo-cooperative: undefined;
+  --avatar-company-logo-coreos: undefined;
+  --avatar-company-logo-cubekit: undefined;
+  --avatar-company-logo-easytax: undefined;
+  --avatar-company-logo-eclipseful: undefined;
+  --avatar-company-logo-eightball: undefined;
+  --avatar-company-logo-elasticware: undefined;
+  --avatar-company-logo-ennlabs: undefined;
+  --avatar-company-logo-ephemeral: undefined;
+  --avatar-company-logo-epicurious: undefined;
+  --avatar-company-logo-euphoria: undefined;
+  --avatar-company-logo-europa: undefined;
+  --avatar-company-logo-featherdev: undefined;
+  --avatar-company-logo-floraandfauna: undefined;
+  --avatar-company-logo-focalpoint: undefined;
+  --avatar-company-logo-foresight: undefined;
+  --avatar-company-logo-fourpoints: undefined;
+  --avatar-company-logo-frequencii: undefined;
+  --avatar-company-logo-galileo: undefined;
+  --avatar-company-logo-globalbank: undefined;
+  --avatar-company-logo-goodwell: undefined;
+  --avatar-company-logo-hexahedron: undefined;
+  --avatar-company-logo-hexsmith: undefined;
+  --avatar-company-logo-hourglass: undefined;
+  --avatar-company-logo-ikigai-labs: undefined;
+  --avatar-company-logo-imgcompress: undefined;
+  --avatar-company-logo-interlock: undefined;
+  --avatar-company-logo-kintsugi: undefined;
+  --avatar-company-logo-launchsimple: undefined;
+  --avatar-company-logo-layers: undefined;
+  --avatar-company-logo-leapyear: undefined;
+  --avatar-company-logo-lightbox: undefined;
+  --avatar-company-logo-lightspeed: undefined;
+  --avatar-company-logo-luckycharm: undefined;
+  --avatar-company-logo-luminary: undefined;
+  --avatar-company-logo-luminescence: undefined;
+  --avatar-company-logo-luminous: undefined;
+  --avatar-company-logo-mangolia: undefined;
+  --avatar-company-logo-mastermail: undefined;
+  --avatar-company-logo-nietzsche: undefined;
+  --avatar-company-logo-norse-star: undefined;
+  --avatar-company-logo-odeaolabs: undefined;
+  --avatar-company-logo-ollio: undefined;
+  --avatar-company-logo-pagemanage: undefined;
+  --avatar-company-logo-peregrin: undefined;
+  --avatar-company-logo-pictelai: undefined;
+  --avatar-company-logo-pollinate: undefined;
+  --avatar-company-logo-polymath: undefined;
+  --avatar-company-logo-powersurge: undefined;
+  --avatar-company-logo-prometheus: undefined;
+  --avatar-company-logo-quantum: undefined;
+  --avatar-company-logo-quartzai: undefined;
+  --avatar-company-logo-quixotic: undefined;
+  --avatar-company-logo-quotient: undefined;
+  --avatar-company-logo-radius: undefined;
+  --avatar-company-logo-railspeed: undefined;
+  --avatar-company-logo-refractional: undefined;
+  --avatar-company-logo-renaissance: undefined;
+  --avatar-company-logo-screentime: undefined;
+  --avatar-company-logo-segment: undefined;
+  --avatar-company-logo-shutterframe: undefined;
+  --avatar-company-logo-sisyphus: undefined;
+  --avatar-company-logo-solaris-energy: undefined;
+  --avatar-company-logo-sonorous: undefined;
+  --avatar-company-logo-spherule: undefined;
+  --avatar-company-logo-stack3d-lab: undefined;
+  --avatar-company-logo-untitled-ui: undefined;
+  --avatar-company-logo-visionwork: undefined;
+  --avatar-company-logo-voxel-labs: undefined;
+  --avatar-company-logo-warpspeed: undefined;
+  --avatar-company-logo-watchtower: undefined;
+  --avatar-company-logo-wildcrafted: undefined;
+  --screen-mockups-desktop-desktop-light-mode-01: undefined;
+  --screen-mockups-desktop-desktop-dark-mode-01: undefined;
+  --screen-mockups-desktop-desktop-light-mode-02: undefined;
+  --screen-mockups-desktop-desktop-dark-mode-02: undefined;
+  --screen-mockups-mobile-mobile-light-mode-01: undefined;
+  --screen-mockups-mobile-mobile-dark-mode-01: undefined;
+  --screen-mockups-mobile-mobile-light-mode-02: undefined;
+  --screen-mockups-mobile-mobile-dark-mode-02: undefined;
+  --screen-mockups-macbook-macbook-light-mode-01: undefined;
+  --screen-mockups-macbook-macbook-dark-mode-01: undefined;
+  --screen-mockups-macbook-macbook-light-mode-02: undefined;
+  --screen-mockups-macbook-macbook-dark-mode-02: undefined;
+  --map-placeholders-map-light-mode-01-landscape: undefined;
+  --map-placeholders-map-light-mode-01-portrait: undefined;
+  --map-placeholders-map-dark-mode-01-landscape: undefined;
+  --map-placeholders-map-dark-mode-01-portrait: undefined;
+  --map-placeholders-map-light-mode-02-landscape: undefined;
+  --map-placeholders-map-light-mode-02-portrait: undefined;
+  --map-placeholders-map-light-mode-03-landscape: undefined;
+  --map-placeholders-map-light-mode-03-portrait: undefined;
+
+  /* Fonts */
+  --display-2xl-regular-font-family: Inter-Regular, sans-serif;
+  --display-2xl-regular-font-size: Infinityrem;
+  --display-2xl-regular-line-height: Infinityrem;
+  --display-2xl-regular-font-weight: 400;
+  --display-2xl-regular-font-style: normal;
+  --display-2xl-medium-font-family: Inter-Medium, sans-serif;
+  --display-2xl-medium-font-size: Infinityrem;
+  --display-2xl-medium-line-height: Infinityrem;
+  --display-2xl-medium-font-weight: 500;
+  --display-2xl-medium-font-style: normal;
+  --display-2xl-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-2xl-semibold-font-size: Infinityrem;
+  --display-2xl-semibold-line-height: Infinityrem;
+  --display-2xl-semibold-font-weight: 600;
+  --display-2xl-semibold-font-style: normal;
+  --display-2xl-bold-font-family: Inter-Bold, sans-serif;
+  --display-2xl-bold-font-size: Infinityrem;
+  --display-2xl-bold-line-height: Infinityrem;
+  --display-2xl-bold-font-weight: 700;
+  --display-2xl-bold-font-style: normal;
+  --display-xl-regular-font-family: Inter-Regular, sans-serif;
+  --display-xl-regular-font-size: Infinityrem;
+  --display-xl-regular-line-height: Infinityrem;
+  --display-xl-regular-font-weight: 400;
+  --display-xl-regular-font-style: normal;
+  --display-xl-medium-font-family: Inter-Medium, sans-serif;
+  --display-xl-medium-font-size: Infinityrem;
+  --display-xl-medium-line-height: Infinityrem;
+  --display-xl-medium-font-weight: 500;
+  --display-xl-medium-font-style: normal;
+  --display-xl-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-xl-semibold-font-size: Infinityrem;
+  --display-xl-semibold-line-height: Infinityrem;
+  --display-xl-semibold-font-weight: 600;
+  --display-xl-semibold-font-style: normal;
+  --display-xl-bold-font-family: Inter-Bold, sans-serif;
+  --display-xl-bold-font-size: Infinityrem;
+  --display-xl-bold-line-height: Infinityrem;
+  --display-xl-bold-font-weight: 700;
+  --display-xl-bold-font-style: normal;
+  --display-lg-regular-font-family: Inter-Regular, sans-serif;
+  --display-lg-regular-font-size: Infinityrem;
+  --display-lg-regular-line-height: Infinityrem;
+  --display-lg-regular-font-weight: 400;
+  --display-lg-regular-font-style: normal;
+  --display-lg-medium-font-family: Inter-Medium, sans-serif;
+  --display-lg-medium-font-size: Infinityrem;
+  --display-lg-medium-line-height: Infinityrem;
+  --display-lg-medium-font-weight: 500;
+  --display-lg-medium-font-style: normal;
+  --display-lg-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-lg-semibold-font-size: Infinityrem;
+  --display-lg-semibold-line-height: Infinityrem;
+  --display-lg-semibold-font-weight: 600;
+  --display-lg-semibold-font-style: normal;
+  --display-lg-bold-font-family: Inter-Bold, sans-serif;
+  --display-lg-bold-font-size: Infinityrem;
+  --display-lg-bold-line-height: Infinityrem;
+  --display-lg-bold-font-weight: 700;
+  --display-lg-bold-font-style: normal;
+  --display-md-regular-font-family: Inter-Regular, sans-serif;
+  --display-md-regular-font-size: Infinityrem;
+  --display-md-regular-line-height: Infinityrem;
+  --display-md-regular-font-weight: 400;
+  --display-md-regular-font-style: normal;
+  --display-md-medium-font-family: Inter-Medium, sans-serif;
+  --display-md-medium-font-size: Infinityrem;
+  --display-md-medium-line-height: Infinityrem;
+  --display-md-medium-font-weight: 500;
+  --display-md-medium-font-style: normal;
+  --display-md-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-md-semibold-font-size: Infinityrem;
+  --display-md-semibold-line-height: Infinityrem;
+  --display-md-semibold-font-weight: 600;
+  --display-md-semibold-font-style: normal;
+  --display-md-bold-font-family: Inter-Bold, sans-serif;
+  --display-md-bold-font-size: Infinityrem;
+  --display-md-bold-line-height: Infinityrem;
+  --display-md-bold-font-weight: 700;
+  --display-md-bold-font-style: normal;
+  --display-sm-regular-font-family: Inter-Regular, sans-serif;
+  --display-sm-regular-font-size: Infinityrem;
+  --display-sm-regular-line-height: Infinityrem;
+  --display-sm-regular-font-weight: 400;
+  --display-sm-regular-font-style: normal;
+  --display-sm-medium-font-family: Inter-Medium, sans-serif;
+  --display-sm-medium-font-size: Infinityrem;
+  --display-sm-medium-line-height: Infinityrem;
+  --display-sm-medium-font-weight: 500;
+  --display-sm-medium-font-style: normal;
+  --display-sm-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-sm-semibold-font-size: Infinityrem;
+  --display-sm-semibold-line-height: Infinityrem;
+  --display-sm-semibold-font-weight: 600;
+  --display-sm-semibold-font-style: normal;
+  --display-sm-bold-font-family: Inter-Bold, sans-serif;
+  --display-sm-bold-font-size: Infinityrem;
+  --display-sm-bold-line-height: Infinityrem;
+  --display-sm-bold-font-weight: 700;
+  --display-sm-bold-font-style: normal;
+  --display-sm-medium-italic-font-family: Inter-MediumItalic, sans-serif;
+  --display-sm-medium-italic-font-size: Infinityrem;
+  --display-sm-medium-italic-line-height: Infinityrem;
+  --display-sm-medium-italic-font-weight: 500;
+  --display-sm-medium-italic-font-style: italic;
+  --display-xs-regular-font-family: Inter-Regular, sans-serif;
+  --display-xs-regular-font-size: Infinityrem;
+  --display-xs-regular-line-height: Infinityrem;
+  --display-xs-regular-font-weight: 400;
+  --display-xs-regular-font-style: normal;
+  --display-xs-medium-font-family: Inter-Medium, sans-serif;
+  --display-xs-medium-font-size: Infinityrem;
+  --display-xs-medium-line-height: Infinityrem;
+  --display-xs-medium-font-weight: 500;
+  --display-xs-medium-font-style: normal;
+  --display-xs-semibold-font-family: Inter-SemiBold, sans-serif;
+  --display-xs-semibold-font-size: Infinityrem;
+  --display-xs-semibold-line-height: Infinityrem;
+  --display-xs-semibold-font-weight: 600;
+  --display-xs-semibold-font-style: normal;
+  --display-xs-bold-font-family: Inter-Bold, sans-serif;
+  --display-xs-bold-font-size: Infinityrem;
+  --display-xs-bold-line-height: Infinityrem;
+  --display-xs-bold-font-weight: 700;
+  --display-xs-bold-font-style: normal;
+  --display-xs-medium-italic-font-family: Inter-MediumItalic, sans-serif;
+  --display-xs-medium-italic-font-size: Infinityrem;
+  --display-xs-medium-italic-line-height: Infinityrem;
+  --display-xs-medium-italic-font-weight: 500;
+  --display-xs-medium-italic-font-style: italic;
+  --text-xl-regular-font-family: Inter-Regular, sans-serif;
+  --text-xl-regular-font-size: Infinityrem;
+  --text-xl-regular-line-height: Infinityrem;
+  --text-xl-regular-font-weight: 400;
+  --text-xl-regular-font-style: normal;
+  --text-xl-medium-font-family: Inter-Medium, sans-serif;
+  --text-xl-medium-font-size: Infinityrem;
+  --text-xl-medium-line-height: Infinityrem;
+  --text-xl-medium-font-weight: 500;
+  --text-xl-medium-font-style: normal;
+  --text-xl-semibold-font-family: Inter-SemiBold, sans-serif;
+  --text-xl-semibold-font-size: Infinityrem;
+  --text-xl-semibold-line-height: Infinityrem;
+  --text-xl-semibold-font-weight: 600;
+  --text-xl-semibold-font-style: normal;
+  --text-xl-bold-font-family: Inter-Bold, sans-serif;
+  --text-xl-bold-font-size: Infinityrem;
+  --text-xl-bold-line-height: Infinityrem;
+  --text-xl-bold-font-weight: 700;
+  --text-xl-bold-font-style: normal;
+  --text-xl-regular-italic-font-family: Inter-Italic, sans-serif;
+  --text-xl-regular-italic-font-size: Infinityrem;
+  --text-xl-regular-italic-line-height: Infinityrem;
+  --text-xl-regular-italic-font-weight: 400;
+  --text-xl-regular-italic-font-style: italic;
+  --text-xl-medium-italic-font-family: Inter-MediumItalic, sans-serif;
+  --text-xl-medium-italic-font-size: Infinityrem;
+  --text-xl-medium-italic-line-height: Infinityrem;
+  --text-xl-medium-italic-font-weight: 500;
+  --text-xl-medium-italic-font-style: italic;
+  --text-xl-semibold-italic-font-family: Inter-SemiBoldItalic, sans-serif;
+  --text-xl-semibold-italic-font-size: Infinityrem;
+  --text-xl-semibold-italic-line-height: Infinityrem;
+  --text-xl-semibold-italic-font-weight: 600;
+  --text-xl-semibold-italic-font-style: italic;
+  --text-xl-bold-italic-font-family: Inter-BoldItalic, sans-serif;
+  --text-xl-bold-italic-font-size: Infinityrem;
+  --text-xl-bold-italic-line-height: Infinityrem;
+  --text-xl-bold-italic-font-weight: 700;
+  --text-xl-bold-italic-font-style: italic;
+  --text-xl-regular-underlined-font-family: Inter-Regular, sans-serif;
+  --text-xl-regular-underlined-font-size: Infinityrem;
+  --text-xl-regular-underlined-line-height: Infinityrem;
+  --text-xl-regular-underlined-font-weight: 400;
+  --text-xl-regular-underlined-font-style: normal;
+  --text-lg-regular-font-family: Inter-Regular, sans-serif;
+  --text-lg-regular-font-size: Infinityrem;
+  --text-lg-regular-line-height: Infinityrem;
+  --text-lg-regular-font-weight: 400;
+  --text-lg-regular-font-style: normal;
+  --text-lg-medium-font-family: Inter-Medium, sans-serif;
+  --text-lg-medium-font-size: Infinityrem;
+  --text-lg-medium-line-height: Infinityrem;
+  --text-lg-medium-font-weight: 500;
+  --text-lg-medium-font-style: normal;
+  --text-lg-semibold-font-family: Inter-SemiBold, sans-serif;
+  --text-lg-semibold-font-size: Infinityrem;
+  --text-lg-semibold-line-height: Infinityrem;
+  --text-lg-semibold-font-weight: 600;
+  --text-lg-semibold-font-style: normal;
+  --text-lg-bold-font-family: Inter-Bold, sans-serif;
+  --text-lg-bold-font-size: Infinityrem;
+  --text-lg-bold-line-height: Infinityrem;
+  --text-lg-bold-font-weight: 700;
+  --text-lg-bold-font-style: normal;
+  --text-lg-regular-italic-font-family: Inter-Italic, sans-serif;
+  --text-lg-regular-italic-font-size: Infinityrem;
+  --text-lg-regular-italic-line-height: Infinityrem;
+  --text-lg-regular-italic-font-weight: 400;
+  --text-lg-regular-italic-font-style: italic;
+  --text-lg-medium-italic-font-family: Inter-MediumItalic, sans-serif;
+  --text-lg-medium-italic-font-size: Infinityrem;
+  --text-lg-medium-italic-line-height: Infinityrem;
+  --text-lg-medium-italic-font-weight: 500;
+  --text-lg-medium-italic-font-style: italic;
+  --text-lg-semibold-italic-font-family: Inter-SemiBoldItalic, sans-serif;
+  --text-lg-semibold-italic-font-size: Infinityrem;
+  --text-lg-semibold-italic-line-height: Infinityrem;
+  --text-lg-semibold-italic-font-weight: 600;
+  --text-lg-semibold-italic-font-style: italic;
+  --text-lg-bold-italic-font-family: Inter-BoldItalic, sans-serif;
+  --text-lg-bold-italic-font-size: Infinityrem;
+  --text-lg-bold-italic-line-height: Infinityrem;
+  --text-lg-bold-italic-font-weight: 700;
+  --text-lg-bold-italic-font-style: italic;
+  --text-lg-regular-underlined-font-family: Inter-Regular, sans-serif;
+  --text-lg-regular-underlined-font-size: Infinityrem;
+  --text-lg-regular-underlined-line-height: Infinityrem;
+  --text-lg-regular-underlined-font-weight: 400;
+  --text-lg-regular-underlined-font-style: normal;
+  --text-lg-medium-underlined-font-family: Inter-Medium, sans-serif;
+  --text-lg-medium-underlined-font-size: Infinityrem;
+  --text-lg-medium-underlined-line-height: Infinityrem;
+  --text-lg-medium-underlined-font-weight: 500;
+  --text-lg-medium-underlined-font-style: normal;
+  --text-lg-semibold-underlined-font-family: Inter-SemiBold, sans-serif;
+  --text-lg-semibold-underlined-font-size: Infinityrem;
+  --text-lg-semibold-underlined-line-height: Infinityrem;
+  --text-lg-semibold-underlined-font-weight: 600;
+  --text-lg-semibold-underlined-font-style: normal;
+  --text-md-regular-font-family: Inter-Regular, sans-serif;
+  --text-md-regular-font-size: Infinityrem;
+  --text-md-regular-line-height: Infinityrem;
+  --text-md-regular-font-weight: 400;
+  --text-md-regular-font-style: normal;
+  --text-md-medium-font-family: Inter-Medium, sans-serif;
+  --text-md-medium-font-size: Infinityrem;
+  --text-md-medium-line-height: Infinityrem;
+  --text-md-medium-font-weight: 500;
+  --text-md-medium-font-style: normal;
+  --text-md-semibold-font-family: Inter-SemiBold, sans-serif;
+  --text-md-semibold-font-size: Infinityrem;
+  --text-md-semibold-line-height: Infinityrem;
+  --text-md-semibold-font-weight: 600;
+  --text-md-semibold-font-style: normal;
+  --text-md-bold-font-family: Inter-Bold, sans-serif;
+  --text-md-bold-font-size: Infinityrem;
+  --text-md-bold-line-height: Infinityrem;
+  --text-md-bold-font-weight: 700;
+  --text-md-bold-font-style: normal;
+  --text-md-regular-italic-font-family: Inter-Italic, sans-serif;
+  --text-md-regular-italic-font-size: Infinityrem;
+  --text-md-regular-italic-line-height: Infinityrem;
+  --text-md-regular-italic-font-weight: 400;
+  --text-md-regular-italic-font-style: italic;
+  --text-md-medium-italic-font-family: Inter-MediumItalic, sans-serif;
+  --text-md-medium-italic-font-size: Infinityrem;
+  --text-md-medium-italic-line-height: Infinityrem;
+  --text-md-medium-italic-font-weight: 500;
+  --text-md-medium-italic-font-style: italic;
+  --text-md-semibold-italic-font-family: Inter-SemiBoldItalic, sans-serif;
+  --text-md-semibold-italic-font-size: Infinityrem;
+  --text-md-semibold-italic-line-height: Infinityrem;
+  --text-md-semibold-italic-font-weight: 600;
+  --text-md-semibold-italic-font-style: italic;
+  --text-md-bold-italic-font-family: Inter-BoldItalic, sans-serif;
+  --text-md-bold-italic-font-size: Infinityrem;
+  --text-md-bold-italic-line-height: Infinityrem;
+  --text-md-bold-italic-font-weight: 700;
+  --text-md-bold-italic-font-style: italic;
+  --text-md-regular-underlined-font-family: Inter-Regular, sans-serif;
+  --text-md-regular-underlined-font-size: Infinityrem;
+  --text-md-regular-underlined-line-height: Infinityrem;
+  --text-md-regular-underlined-font-weight: 400;
+  --text-md-regular-underlined-font-style: normal;
+  --text-md-medium-underlined-font-family: Inter-Medium, sans-serif;
+  --text-md-medium-underlined-font-size: Infinityrem;
+  --text-md-medium-underlined-line-height: Infinityrem;
+  --text-md-medium-underlined-font-weight: 500;
+  --text-md-medium-underlined-font-style: normal;
+  --text-md-semibold-underlined-font-family: Inter-SemiBold, sans-serif;
+  --text-md-semibold-underlined-font-size: Infinityrem;
+  --text-md-semibold-underlined-line-height: Infinityrem;
+  --text-md-semibold-underlined-font-weight: 600;
+  --text-md-semibold-underlined-font-style: normal;
+  --text-sm-regular-font-family: Inter-Regular, sans-serif;
+  --text-sm-regular-font-size: Infinityrem;
+  --text-sm-regular-line-height: Infinityrem;
+  --text-sm-regular-font-weight: 400;
+  --text-sm-regular-font-style: normal;
+  --text-sm-medium-font-family: Inter-Medium, sans-serif;
+  --text-sm-medium-font-size: Infinityrem;
+  --text-sm-medium-line-height: Infinityrem;
+  --text-sm-medium-font-weight: 500;
+  --text-sm-medium-font-style: normal;
+  --text-sm-semibold-font-family: Inter-SemiBold, sans-serif;
+  --text-sm-semibold-font-size: Infinityrem;
+  --text-sm-semibold-line-height: Infinityrem;
+  --text-sm-semibold-font-weight: 600;
+  --text-sm-semibold-font-style: normal;
+  --text-sm-bold-font-family: Inter-Bold, sans-serif;
+  --text-sm-bold-font-size: Infinityrem;
+  --text-sm-bold-line-height: Infinityrem;
+  --text-sm-bold-font-weight: 700;
+  --text-sm-bold-font-style: normal;
+  --text-sm-regular-underlined-font-family: Inter-Regular, sans-serif;
+  --text-sm-regular-underlined-font-size: Infinityrem;
+  --text-sm-regular-underlined-line-height: Infinityrem;
+  --text-sm-regular-underlined-font-weight: 400;
+  --text-sm-regular-underlined-font-style: normal;
+  --text-sm-medium-underlined-font-family: Inter-Medium, sans-serif;
+  --text-sm-medium-underlined-font-size: Infinityrem;
+  --text-sm-medium-underlined-line-height: Infinityrem;
+  --text-sm-medium-underlined-font-weight: 500;
+  --text-sm-medium-underlined-font-style: normal;
+  --text-sm-semibold-underlined-font-family: Inter-SemiBold, sans-serif;
+  --text-sm-semibold-underlined-font-size: Infinityrem;
+  --text-sm-semibold-underlined-line-height: Infinityrem;
+  --text-sm-semibold-underlined-font-weight: 600;
+  --text-sm-semibold-underlined-font-style: normal;
+  --text-xs-regular-font-family: Inter-Regular, sans-serif;
+  --text-xs-regular-font-size: Infinityrem;
+  --text-xs-regular-line-height: Infinityrem;
+  --text-xs-regular-font-weight: 400;
+  --text-xs-regular-font-style: normal;
+  --text-xs-medium-font-family: Inter-Medium, sans-serif;
+  --text-xs-medium-font-size: Infinityrem;
+  --text-xs-medium-line-height: Infinityrem;
+  --text-xs-medium-font-weight: 500;
+  --text-xs-medium-font-style: normal;
+  --text-xs-semibold-font-family: Inter-SemiBold, sans-serif;
+  --text-xs-semibold-font-size: Infinityrem;
+  --text-xs-semibold-line-height: Infinityrem;
+  --text-xs-semibold-font-weight: 600;
+  --text-xs-semibold-font-style: normal;
+  --text-xs-bold-font-family: Inter-Bold, sans-serif;
+  --text-xs-bold-font-size: Infinityrem;
+  --text-xs-bold-line-height: Infinityrem;
+  --text-xs-bold-font-weight: 700;
+  --text-xs-bold-font-style: normal;
+
+  /* Effects */
+  --shadows-shadow-xs-box-shadow: NaNrem Infinityrem Infinityrem NaNrem
+    rgba(10, 13, 18, 0.05);
+  --shadows-shadow-xs-skeuomorphic-box-shadow: NaNrem Infinityrem Infinityrem
+      NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem -Infinityrem NaNrem NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem NaNrem NaNrem Infinityrem rgba(10, 13, 18, 0.18);
+  --shadows-shadow-sm-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.1);
+  --shadows-shadow-md-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.06),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.1);
+  --shadows-shadow-lg-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.04),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.03),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.08);
+  --shadows-shadow-xl-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.04),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.03),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.08);
+  --shadows-shadow-2xl-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.04),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.18);
+  --shadows-shadow-3xl-box-shadow: NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.04),
+    NaNrem Infinityrem Infinityrem -Infinityrem rgba(10, 13, 18, 0.14);
+  --shadows-portfolio-mockups-shadow-main-centre-md-box-shadow: NaNrem
+    Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.14);
+  --shadows-portfolio-mockups-shadow-main-centre-lg-box-shadow: NaNrem
+    Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.18);
+  --shadows-portfolio-mockups-shadow-overlay-right-lg-box-shadow: -Infinityrem
+    Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.12);
+  --shadows-portfolio-mockups-shadow-overlay-left-lg-box-shadow: Infinityrem
+    Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.12);
+  --shadows-portfolio-mockups-shadow-grid-md-box-shadow: Infinityrem Infinityrem
+    Infinityrem NaNrem rgba(10, 13, 18, 0.08);
+  --focus-rings-focus-ring-box-shadow: NaNrem NaNrem NaNrem Infinityrem
+      rgba(158, 119, 237, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1);
+  --focus-rings-focus-ring-shadow-xs-box-shadow: NaNrem NaNrem NaNrem
+      Infinityrem rgba(158, 119, 237, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.05);
+  --focus-rings-focus-ring-shadow-xs-skeuomorphic-box-shadow: NaNrem NaNrem
+      NaNrem Infinityrem rgba(158, 119, 237, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem -Infinityrem NaNrem NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem NaNrem NaNrem Infinityrem rgba(10, 13, 18, 0.18);
+  --focus-rings-focus-ring-shadow-sm-box-shadow: NaNrem NaNrem NaNrem
+      Infinityrem rgba(158, 119, 237, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.1);
+  --focus-rings-focus-ring-error-box-shadow: NaNrem NaNrem NaNrem Infinityrem
+      rgba(240, 68, 56, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1);
+  --focus-rings-focus-ring-error-shadow-xs-box-shadow: NaNrem NaNrem NaNrem
+      Infinityrem rgba(240, 68, 56, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.05);
+  --focus-rings-focus-ring-error-shadow-xs-skeuomorphic-box-shadow: NaNrem
+      NaNrem NaNrem Infinityrem rgba(240, 68, 56, 1),
+    NaNrem NaNrem NaNrem Infinityrem rgba(255, 255, 255, 1),
+    NaNrem Infinityrem Infinityrem NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem -Infinityrem NaNrem NaNrem rgba(10, 13, 18, 0.05),
+    inset NaNrem NaNrem NaNrem Infinityrem rgba(10, 13, 18, 0.18);
+  --backdrop-blurs-backdrop-blur-sm-backdrop-filter: blur(Infinityrem);
+  --backdrop-blurs-backdrop-blur-md-backdrop-filter: blur(Infinityrem);
+  --backdrop-blurs-backdrop-blur-lg-backdrop-filter: blur(Infinityrem);
+  --backdrop-blurs-backdrop-blur-xl-backdrop-filter: blur(Infinityrem);
+}

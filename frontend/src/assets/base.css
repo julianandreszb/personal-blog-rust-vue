@@ -109,6 +109,18 @@ html {
   --container-padding-desktop: 6.4rem;
 }
 
+/* Typography */
+:root {
+  --Font-family-font-family-body: 'Inter', sans-serif;
+  --Font-family-font-family-display: 'Inter', sans-serif;
+  
+  --Font-size-text-sm: 1.4rem;
+  --Font-size-display-xs: 2.4rem;
+
+  --Line-height-text-sm: 2rem;
+  
+  --Line-height-display-xs: 3.2rem;
+}
 
 /* semantic color variables for this project */
 :root {
@@ -117,7 +129,7 @@ html {
   --bg-primary_hover: var(--colors-gray-light-mode-50);
 
   /* Background Alt (light mode) */
-  --bg-primary_alt: var(--colors-base-white);
+  --Colors-Background-bg-primary_alt: var(--colors-base-white);
 
   /* Brand (light mode) */
   --bg-brand-primary: var(--colors-brand-50);
@@ -137,7 +149,7 @@ html {
   --border-primary: var(--colors-gray-light-mode-300);
 
   /* Border --border-secondary (light mode) */
-  --border-secondary: var(--colors-gray-light-mode-200);
+  --Colors-Border-border-secondary: var(--colors-gray-light-mode-200);
 
   /* Border --border-tertiary (light mode) */
   --border-tertiary: var(--colors-gray-light-mode-100);
@@ -151,14 +163,14 @@ html {
   --featured-icon-modern-border: var(--colors-gray-light-mode-200);
 
   /* Text color (light mode) */
-  --text-primary: var(--colors-gray-light-mode-900);
-  --text-secondary: var(--colors-gray-light-mode-700);
-  --text-tertiary: var(--colors-gray-light-mode-600);
-  --text-quaternary: var(--colors-gray-light-mode-500);
-  --text-white: var(--colors-base-white);
+  --Colors-Text-text-primary-900: var(--colors-gray-light-mode-900);
+  --Colors-Text-text-secondary-700: var(--colors-gray-light-mode-700);
+  --Colors-Text-text-tertiary-600: var(--colors-gray-light-mode-600);
+  --Colors-Text-text-quaternary-500: var(--colors-gray-light-mode-500);
+  --Colors-Text-text-white: var(--colors-base-white);
 
   /* Text brand secondary (light mode) */
-  --text-brand-secondary: var(--colors-brand-700);
+  --Colors-Text-text-brand-secondary-700: var(--colors-brand-700);
 
   /* Text placeholder (light mode) */
   --text-placeholder: var(--colors-gray-light-mode-500);
@@ -209,7 +221,7 @@ html {
     --bg-primary_hover: var(--colors-gray-dark-mode-800);
 
     /* Background Alt (light mode) */
-    --bg-primary_alt: var(--colors-gray-dark-mode-900);
+    --Colors-Background-bg-primary_alt: var(--colors-gray-dark-mode-900);
 
     /* Brand (dark mode) */
     --bg-brand-primary: var(--colors-brand-500);
@@ -229,7 +241,7 @@ html {
     --border-primary: var(--colors-gray-dark-mode-700);
 
     /* Border secondary (dark mode) */
-    --border-secondary: var(--colors-gray-dark-mode-800);
+    --Colors-Border-border-secondary: var(--colors-gray-dark-mode-800);
 
     /* Border tertiary (dark mode) */
     --border-tertiary: var(--colors-gray-dark-mode-800);
@@ -242,14 +254,14 @@ html {
     --featured-icon-modern-border: var(--colors-gray-dark-mode-700);
 
     /* Text color (dark mode) */
-    --text-primary: var(--colors-gray-dark-mode-50);
-    --text-secondary: var(--colors-gray-dark-mode-300);
-    --text-tertiary: var(--colors-gray-dark-mode-400);
-    --text-quaternary: var(--colors-gray-dark-mode-400);
-    --text-white: var(--colors-base-white);
+    --Colors-Text-text-primary-900: var(--colors-gray-dark-mode-50);
+    --Colors-Text-text-secondary-700: var(--colors-gray-dark-mode-300);
+    --Colors-Text-text-tertiary-600: var(--colors-gray-dark-mode-400);
+    --Colors-Text-text-quaternary-500: var(--colors-gray-dark-mode-400);
+    --Colors-Text-text-white: var(--colors-base-white);
 
     /* Text brand secondary (light mode) */
-    --text-brand-secondary: var(--colors-gray-dark-mode-300);
+    --Colors-Text-text-brand-secondary-700: var(--colors-gray-dark-mode-300);
 
     /* Text placeholder (light mode) */
     --text-placeholder: var(--colors-gray-dark-mode-500);
@@ -302,7 +314,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  /*min-height: 100vh;
   background: var(--bg-primary);
   transition: color 0.5s,
   background-color 0.5s;
@@ -318,7 +330,7 @@ body {
   'Fira Sans',
   'Droid Sans',
   'Helvetica Neue',
-  sans-serif;
+  sans-serif;*/
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
