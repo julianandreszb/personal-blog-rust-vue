@@ -1,7 +1,5 @@
 <script setup>
-import { computed } from 'vue'
 import BaseCard from '@/components/UI/BaseCard.vue' // Import the BaseCard component
-import { useRouter } from 'vue-router'
 
 const props = defineProps({
   post: {
@@ -13,13 +11,12 @@ const props = defineProps({
 
 <template>
   <BaseCard class="post-list-item">
-    <img :src="post.featured_image" alt="Cover image" />
+    <img class="post-cover-image" :src="props.post.featured_image" alt="Cover image" />
     <section class="card-content">
       <div class="card-heading-and-text" >
-<!--        <time class="card-date">{{ post.updated_at}}</time>-->
-        <time class="card-date">Olivia Rhye • 20 Jan 2025</time>
+        <time class="card-date">{{ props.post.updated_at}}</time>
         <div class="card-heading-and-icon" >
-          <h1 class="card-heading-title" >{{ post.title }}</h1>
+          <h1 class="card-heading-title" >{{ props.post.title }}</h1>
           <div class="icon-wrap" >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#181D27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -29,12 +26,7 @@ const props = defineProps({
         <p class="card-supporting-text" >How do you create compelling presentations that wow your colleagues and impress your managers?</p>
       </div>
       
-      
-      
-      
-      
       <div class="card-categories" ></div>
-      
       
     </section>
   </BaseCard>
@@ -43,13 +35,14 @@ const props = defineProps({
 <style lang="scss" scoped>
 @use '../../assets/text-styles' as text-styles;
 .post-list-item {
-  img {
-    height: 240px;
-    align-self: stretch;
-
+  .post-cover-image {
     border-top-left-radius: var(--spacing-xl);
     border-top-right-radius: var(--spacing-xl);
     background: lightgray 50% / cover no-repeat;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 240px;
   }
 
   .card-content {
@@ -98,7 +91,7 @@ const props = defineProps({
     @include text-styles.text-md-regular;
 
     overflow: hidden;
-    color: var(--Colors-Text-text-tertiary-600, #535862);
+    color: var(--Colors-Text-text-tertiary-600);
     text-overflow: ellipsis;
   }
 }
