@@ -1,34 +1,46 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const useDark = window.matchMedia('(prefers-color-scheme: dark)')
-const toggleDarkMode = (evt) => {
-  if (evt.matches) {
-    document.documentElement.classList.add('dark-mode')
-  } else {
-    document.documentElement.classList.remove('dark-mode')
+const DARK_MODE_LOCAL_STORAGE_KEY = 'dark-mode'
+const colorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)')
+const isDarkModeEnabled = ref(getInitialDarkModeState())
+
+function getInitialDarkModeState() {
+  const storedPreference = localStorage.getItem(DARK_MODE_LOCAL_STORAGE_KEY)
+  return storedPreference === 'true' || (storedPreference === null && colorSchemeMedia.matches);
+  
+}
+
+function setInitialPreference() {
+  if (localStorage.getItem(DARK_MODE_LOCAL_STORAGE_KEY) === null) {
+    localStorage.setItem(DARK_MODE_LOCAL_STORAGE_KEY, isDarkModeEnabled.value)
   }
-  localStorage.setItem('dark-mode', useDark.matches)
+}
+
+function toggleColorScheme(state) {
+  document.documentElement.classList.toggle('dark-mode', state)
+  localStorage.setItem(DARK_MODE_LOCAL_STORAGE_KEY, state)
+}
+
+function onChangeColorScheme(event) {
+  toggleColorScheme(event.matches)
 }
 
 onMounted(() => {
-  if (!localStorage.getItem('dark-mode')) {
-    localStorage.setItem('dark-mode', useDark.matches)
-  }
-
-  useDark.addEventListener('change', toggleDarkMode)
-  toggleDarkMode(useDark)
+  setInitialPreference()
+  toggleColorScheme(isDarkModeEnabled.value)
+  colorSchemeMedia.addEventListener('change', onChangeColorScheme)
 })
 
 onUnmounted(() => {
-  useDark.removeEventListener('change', toggleDarkMode)
+  colorSchemeMedia.removeEventListener('change', onChangeColorScheme)
 })
 </script>
 
 <template>
   <div class="dark-mode-toggle">
-    <label class="switch">
-      <input type="checkbox" />
+    <label class="switch" @click="toggleColorScheme(!isDarkModeEnabled)">
+      <input type="checkbox" v-model="isDarkModeEnabled" />
       <span class="slider">
         <svg
           class="slider-icon"
