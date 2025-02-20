@@ -7,8 +7,13 @@
   line-height: var(--Line-height-text-sm, 20px); /* 142.857% */
 }
 
+/* Text md/Semibold */
 @mixin text-md-semibold {
-  
+  font-family: var(--Font-family-font-family-body, Inter), serif;
+  font-size: var(--Font-size-text-md, 16px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--Line-height-text-md, 24px); /* 150% */
 }
 
 /* Text md/Regular */
@@ -18,6 +23,15 @@
   font-style: normal;
   font-weight: 400;
   line-height: var(--Line-height-text-md, 24px); /* 150% */
+}
+
+/* Text sm/Medium */
+@mixin text-sm-medium {
+  font-family: var(--Font-family-font-family-body, Inter), serif;
+  font-size: var(--Font-size-text-sm, 14px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Line-height-text-sm, 20px); /* 142.857% */
 }
 
 
