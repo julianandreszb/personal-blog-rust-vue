@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
+</script>
 
 <template>
   <header class="app-header">
@@ -16,7 +18,10 @@
 
       <ul class="nav-links">
         <li>
-          <router-link to="/" class="nav-link">/</router-link>
+          <router-link to="/" class="nav-link">Home</router-link>
+        </li>
+        <li>
+          <dark-mode-toggle />
         </li>
       </ul>
     </nav>
