@@ -37,6 +37,7 @@ pub struct PostApiResponse {
     pub slug: String,
     pub featured_image: Option<String>,
     pub updated_at: Option<DateTime>,
+    pub excerpt: String,
     pub categories: Vec<CategoryWithName>,
     pub tags: Vec<TagWithName>,
 }
@@ -49,6 +50,7 @@ pub struct PostPartial {
     pub slug: String,
     pub featured_image: Option<String>,
     pub updated_at: Option<DateTime>,
+    pub excerpt: String,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

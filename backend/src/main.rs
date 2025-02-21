@@ -137,6 +137,7 @@ async fn get_posts(
         .column(post::Column::Slug)
         .column(post::Column::FeaturedImage)
         .column(post::Column::UpdatedAt)
+        .column(post::Column::Excerpt)
         .into_model::<PostPartial>()
         .all(&state.conn)
         .await
@@ -223,6 +224,7 @@ async fn get_posts(
             slug: post.slug,
             featured_image: post.featured_image,
             updated_at: post.updated_at,
+            excerpt: post.excerpt,
             categories,
             tags,
         });
