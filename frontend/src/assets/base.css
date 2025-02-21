@@ -11,9 +11,10 @@ html {
 }
 
 body {
+    font-family: var(--Font-family-font-family-body), serif;
     max-width: 1280px;
     margin: 0 auto;
-    background: var(--bg-primary);
+    background: var(--Colors-Background-bg-primary);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -113,9 +114,13 @@ body {
     --spacing-11xl: 16rem;
 
     /* Padding */
-    --container-padding-mobile: 1.6rem;
-    --container-padding-tablet: 3.2rem;
-    --container-padding-desktop: 6.4rem;
+    --container-padding-mobile: 0.8rem;
+    --container-padding-tablet: 1.6rem;
+    --container-padding-desktop: 3.2rem;
+    
+    --container-max-width-desktop: 1280px;
+
+    --width-xl: 76.8rem;
 }
 
 /* Typography */
@@ -134,15 +139,16 @@ body {
 /* semantic color variables for this project */
 :root {
     /* Background (light mode) */
-    --bg-primary: var(--colors-base-white);
-    --bg-primary_hover: var(--colors-gray-light-mode-50);
+    --Colors-Background-bg-primary: var(--colors-base-white);
+    --Colors-Background-bg-primary_hover: var(--colors-gray-light-mode-50);
 
     /* Background Alt (light mode) */
     --Colors-Background-bg-primary_alt: var(--colors-base-white);
 
     /* Brand (light mode) */
-    --bg-brand-primary: var(--colors-brand-50);
-    --bg-brand-solid: var(--colors-brand-600);
+    --Colors-Background-bg-brand-primary: var(--colors-brand-50);
+    --Colors-Background-bg-brand-solid: var(--colors-brand-600);
+    --Colors-Background-bg-active: var(--colors-gray-light-mode-50);
 
     --bg-disabled_subtle: var(--colors-gray-light-mode-50);
 
@@ -155,7 +161,7 @@ body {
     --fg-success-primary: var(--colors-success-600);
 
     /* Border primary (light mode) */
-    --border-primary: var(--colors-gray-light-mode-300);
+    --Colors-Border-border-primary: var(--colors-gray-light-mode-300);
 
     /* Border --border-secondary (light mode) */
     --Colors-Border-border-secondary: var(--colors-gray-light-mode-200);
@@ -164,8 +170,8 @@ body {
     --border-tertiary: var(--colors-gray-light-mode-100);
 
     /* Border primary (light mode) */
-    --border-brand-solid: var(--colors-brand-600);
-    --border-brand: var(--colors-brand-300);
+    --Colors-Border-border-brand-solid: var(--colors-brand-600);
+    --Colors-Border-border-brand: var(--colors-brand-500);
 
 
     /* Border feature icon (light mode) */
@@ -182,8 +188,8 @@ body {
     --Colors-Text-text-brand-secondary-700: var(--colors-brand-700);
 
     /* Text placeholder (light mode) */
-    --text-placeholder: var(--colors-gray-light-mode-500);
-    --text-placeholder_subtle: var(--colors-gray-light-mode-300);
+    --Colors-Text-text-placeholder: var(--colors-gray-light-mode-500);
+    --Colors-Text-text-placeholder_subtle: var(--colors-gray-light-mode-300);
 
     --text-disabled: var(--colors-gray-light-mode-500);
 
@@ -222,6 +228,8 @@ body {
 
     --alpha-white-30: rgba(255, 255, 255, 0.3);
 
+    --Colors-Effects-Shadows-shadow-xs: rgba(10, 13, 18, 0.05); 
+
     --Component-colors-Utility-Brand-utility-brand-50: var(--colors-brand-50);
     --Component-colors-Utility-Brand-utility-brand-200: var(--colors-brand-200);
     --Component-colors-Utility-Brand-utility-brand-700: var(--colors-brand-700);
@@ -244,15 +252,16 @@ body {
 
 html.dark-mode {
     /* Background (dark mode) */
-    --bg-primary: var(--colors-gray-dark-mode-950);
-    --bg-primary_hover: var(--colors-gray-dark-mode-800);
+    --Colors-Background-bg-primary: var(--colors-gray-dark-mode-950);
+    --Colors-Background-bg-primary_hover: var(--colors-gray-dark-mode-800);
 
     /* Background Alt (light mode) */
     --Colors-Background-bg-primary_alt: var(--colors-gray-dark-mode-900);
 
     /* Brand (dark mode) */
-    --bg-brand-primary: var(--colors-brand-500);
-    --bg-brand-solid: var(--colors-brand-600);
+    --Colors-Background-bg-brand-primary: var(--colors-brand-500);
+    --Colors-Background-bg-brand-solid: var(--colors-brand-600);
+    --Colors-Background-bg-active: var(--colors-gray-dark-mode-800);
 
     --bg-disabled_subtle: var(--colors-gray-dark-mode-900);
 
@@ -265,7 +274,7 @@ html.dark-mode {
     --fg-success-primary: var(--colors-success-500);
 
     /* Border primary (dark mode) */
-    --border-primary: var(--colors-gray-dark-mode-700);
+    --Colors-Border-border-primary: var(--colors-gray-dark-mode-700);
 
     /* Border secondary (dark mode) */
     --Colors-Border-border-secondary: var(--colors-gray-dark-mode-800);
@@ -274,8 +283,8 @@ html.dark-mode {
     --border-tertiary: var(--colors-gray-dark-mode-800);
 
     /* Border primary (light mode) */
-    --border-brand-solid: var(--colors-brand-500);
-    --border-brand: var(--colors-brand-400);
+    --Colors-Border-border-brand-solid: var(--colors-brand-500);
+    --Colors-Border-border-brand: var(--colors-brand-400);
 
     /* Border feature icon (dark mode) */
     --featured-icon-modern-border: var(--colors-gray-dark-mode-700);
@@ -291,8 +300,8 @@ html.dark-mode {
     --Colors-Text-text-brand-secondary-700: var(--colors-gray-dark-mode-300);
 
     /* Text placeholder (light mode) */
-    --text-placeholder: var(--colors-gray-dark-mode-500);
-    --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
+    --Colors-Text-text-placeholder: var(--colors-gray-dark-mode-500);
+    --Colors-Text-text-placeholder_subtle: var(--colors-gray-dark-mode-700);
 
     --text-disabled: var(--colors-gray-dark-mode-500);
 
