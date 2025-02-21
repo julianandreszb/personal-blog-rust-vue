@@ -32,12 +32,13 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 @use '../../assets/text-styles' as text-styles;
 
 .app-header {
-  background-color: var(--bg-primary);
-  border-bottom: 0.1rem solid var(--border-primary);
+  background-color: var(--Colors-Background-bg-primary);
+  border-bottom: 0.1rem solid var(--Colors-Border-border-primary);
   height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2.4rem 0;
 }
 
 .navbar {
@@ -73,7 +74,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 
 .nav-link {
   @include text-styles.text-md-semibold;
-  background-color: var(--bg-primary);
+  background-color: var(--Colors-Background-bg-primary);
   text-decoration: none;
   color: var(--button-tertiary-fg);
   padding: 0.5rem;
@@ -152,7 +153,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   }
 
   .nav-links li:last-child {
-    border-bottom: 0.1rem solid var(--border-primary);
+    border-bottom: 0.1rem solid var(--Colors-Border-border-primary);
   }
 
   .nav-links li a {
