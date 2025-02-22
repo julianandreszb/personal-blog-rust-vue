@@ -145,6 +145,8 @@ body {
     /* Background Alt (light mode) */
     --Colors-Background-bg-primary_alt: var(--colors-base-white);
 
+    --Colors-Background-bg-secondary_alt: var(--colors-gray-light-mode-50);
+
     /* Brand (light mode) */
     --Colors-Background-bg-brand-primary: var(--colors-brand-50);
     --Colors-Background-bg-brand-solid: var(--colors-brand-600);
@@ -257,6 +259,8 @@ html.dark-mode {
 
     /* Background Alt (light mode) */
     --Colors-Background-bg-primary_alt: var(--colors-gray-dark-mode-900);
+
+    --Colors-Background-bg-secondary_alt: var(--Colors-Background-bg-primary);
 
     /* Brand (dark mode) */
     --Colors-Background-bg-brand-primary: var(--colors-brand-500);

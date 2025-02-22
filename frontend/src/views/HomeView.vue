@@ -1,8 +1,8 @@
 <script setup>
 import AppHeader from '@/components/Layout/AppHeader.vue'
 import PostList from '@/components/Content/PostList.vue'
-/*import SideBar from '@/components/Layout/SideBar.vue'*/
 import HeroSection from '@/components/Content/HeroSection.vue'
+import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'
 </script>
 
 <template>
@@ -11,6 +11,7 @@ import HeroSection from '@/components/Content/HeroSection.vue'
     <hero-section />
   </div>
   <div class="section posts">
+    <horizontal-tabs />
     <post-list />
     <!--    <div class="section-posts">-->
     <!--&lt;!&ndash;      <side-bar />&ndash;&gt;-->
@@ -35,6 +36,7 @@ import HeroSection from '@/components/Content/HeroSection.vue'
 
   &.posts {
     align-items: normal;
+    gap: var(--spacing-4xl);
   }
 }
 
