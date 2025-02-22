@@ -52,16 +52,17 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 }
 
 .navbar-brand {
-  /*margin-inline-start: 1rem;*/
   font-size: 1.5rem;
   font-weight: bold;
   z-index: 20; /* Higher z-index than .nav-links */
   position: relative; /* Needed for z-index to work */
+  margin-inline-start: var(--spacing-3xl);
 }
 
 .brand-link {
   text-decoration: none;
-  color: inherit;
+  //color: inherit;
+  color: var(--Colors-Text-text-primary-900);
 }
 
 .nav-links {

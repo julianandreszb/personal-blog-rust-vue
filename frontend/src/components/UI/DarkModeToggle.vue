@@ -62,6 +62,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+
+.dark-mode-toggle {
+  background-color: var(--Colors-Background-bg-primary);
+}
+
 .switch {
   position: relative;
   display: inline-block;

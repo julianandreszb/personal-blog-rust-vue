@@ -86,6 +86,10 @@ const props = defineProps({
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .icon-wrap path {
+    stroke: var(--Colors-Text-text-primary-900);
+  }
   
   .card-supporting-text {
     @include text-styles.text-md-regular;
