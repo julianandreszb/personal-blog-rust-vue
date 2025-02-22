@@ -42,7 +42,7 @@ const props = defineProps({
     object-fit: cover;
     display: block;
     width: 100%;
-    height: 240px;
+    height: 168px;
   }
 
   .card-content {

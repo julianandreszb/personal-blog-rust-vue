@@ -9,8 +9,7 @@
 <style scoped>
 .card-base {
   display: flex;
-  /*width: 384px;*/
-  min-width: 320px;
+  /*min-width: 300px;*/
   flex-direction: column;
   align-items: flex-start;
 

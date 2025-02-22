@@ -7,22 +7,19 @@ import HeroSection from '@/components/Content/HeroSection.vue'
 
 <template>
   <app-header />
-
-  <div class="section header">
+  <div class="section hero">
     <hero-section />
   </div>
-  
-  <div class="section" >
-    <div class="section-posts">
-<!--      <side-bar />-->
-      <post-list />
-    </div>
+  <div class="section posts">
+    <post-list />
+    <!--    <div class="section-posts">-->
+    <!--&lt;!&ndash;      <side-bar />&ndash;&gt;-->
+    <!--&lt;!&ndash;      <post-list />&ndash;&gt;-->
+    <!--    </div>-->
   </div>
-  
 </template>
 
 <style lang="scss" scoped>
-
 .section {
   display: flex;
   padding-bottom: var(--spacing-9xl);
@@ -30,17 +27,22 @@ import HeroSection from '@/components/Content/HeroSection.vue'
   align-items: center;
   gap: var(--spacing-7xl);
   align-self: stretch;
-  
-  &.header{
+  margin-inline: var(--spacing-3xl);
+
+  &.hero {
     padding: var(--spacing-9xl) 0;
+  }
+
+  &.posts {
+    align-items: normal;
   }
 }
 
-.section-posts {
+/*.section-posts {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: var(--spacing-7xl);
   align-self: stretch;
-}
+}*/
 </style>

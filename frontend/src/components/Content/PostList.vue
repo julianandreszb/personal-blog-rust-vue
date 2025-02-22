@@ -25,10 +25,11 @@ onMounted(async () => {
 
 <style scoped>
 .post-list {
-  border-radius: var(--radius-2xl);
+  /*border-radius: var(--radius-2xl);*/
   column-gap: var(--spacing-xl);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
   row-gap: var(--spacing-4xl);
+  /*padding: var(--spacing-3xl);*/
 }
 </style>
