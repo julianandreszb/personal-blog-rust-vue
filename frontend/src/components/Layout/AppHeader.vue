@@ -39,6 +39,9 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   flex-direction: column;
   justify-content: center;
   padding: 2.4rem 0;
+  margin-inline: var(--spacing-3xl);
+  position: sticky;
+  top: 0;
 }
 
 .navbar {
@@ -49,7 +52,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 }
 
 .navbar-brand {
-  margin-inline-start: 1rem;
+  /*margin-inline-start: 1rem;*/
   font-size: 1.5rem;
   font-weight: bold;
   z-index: 20; /* Higher z-index than .nav-links */
@@ -62,7 +65,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 }
 
 .nav-links {
-  margin-inline-end: 1rem;
+  /*margin-inline-end: 1rem;*/
   list-style: none;
   display: flex;
   padding: 0;
@@ -122,8 +125,14 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
 
 /* --- Mobile Menu Styles (using :checked) --- */
 @media (max-width: 768px) {
+  
+  .app-header {
+    margin-inline: 0;
+  }
+  
   .hamburger-menu {
     display: block;
+    margin-inline-end: var(--spacing-lg);
   }
 
   .nav-links {
@@ -143,7 +152,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   .menu-toggle:checked ~ .nav-links {
     display: flex;
     max-height: 500px;
-    height: 500px;
+    /*height: 500px;*/
   }
 
   .nav-links li {

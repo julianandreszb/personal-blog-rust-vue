@@ -113,4 +113,11 @@ input:checked + .slider:before {
   right: 6px;
   top: 7px;
 }
+
+@media (max-width: 768px) {
+  .switch{
+    margin-block: 0.6rem;  
+  }
+}
+
 </style>
