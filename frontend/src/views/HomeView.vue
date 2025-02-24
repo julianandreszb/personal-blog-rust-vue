@@ -2,7 +2,8 @@
 import AppHeader from '@/components/Layout/AppHeader.vue'
 import PostList from '@/components/Content/PostList.vue'
 import HeroSection from '@/components/Content/HeroSection.vue'
-import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'
+/*import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'*/
+import SideBar from '@/components/Layout/SideBar.vue'
 </script>
 
 <template>
@@ -11,12 +12,12 @@ import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'
     <hero-section />
   </div>
   <div class="section posts">
-    <horizontal-tabs />
-    <post-list />
-    <!--    <div class="section-posts">-->
-    <!--&lt;!&ndash;      <side-bar />&ndash;&gt;-->
-    <!--&lt;!&ndash;      <post-list />&ndash;&gt;-->
-    <!--    </div>-->
+<!--    <horizontal-tabs />-->
+<!--    <post-list />-->
+        <div class="section-posts">
+          <side-bar />
+          <post-list />
+        </div>
   </div>
 </template>
 
@@ -40,11 +41,11 @@ import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'
   }
 }
 
-/*.section-posts {
+.section-posts {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: var(--spacing-7xl);
   align-self: stretch;
-}*/
+}
 </style>
