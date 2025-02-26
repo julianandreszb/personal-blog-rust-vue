@@ -4,6 +4,11 @@ import PostList from '@/components/Content/PostList.vue'
 import HeroSection from '@/components/Content/HeroSection.vue'
 /*import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'*/
 import SideBar from '@/components/Layout/SideBar.vue'
+
+import { useAppStore } from '@/stores/appStore.js'
+import AlertMessage from '@/components/UI/AlertMessage.vue'
+
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -12,13 +17,18 @@ import SideBar from '@/components/Layout/SideBar.vue'
     <hero-section />
   </div>
   <div class="section posts">
-<!--    <horizontal-tabs />-->
-<!--    <post-list />-->
-        <div class="section-posts">
-          <side-bar />
-          <post-list />
-        </div>
+    <div class="section-posts">
+      <side-bar class="sidebar" />
+      <post-list />
+    </div>
   </div>
+
+  <alert-message v-if="appStore.serverError">
+    <template #title>
+      <h2>Server Error</h2>
+    </template>
+    <template #content>{{ appStore.serverError }}</template>
+  </alert-message>
 </template>
 
 <style lang="scss" scoped>
@@ -47,5 +57,10 @@ import SideBar from '@/components/Layout/SideBar.vue'
   align-items: flex-start;
   gap: var(--spacing-7xl);
   align-self: stretch;
+}
+
+.sidebar {
+  position: sticky;
+  top: 7.2rem;
 }
 </style>
