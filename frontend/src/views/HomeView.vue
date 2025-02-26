@@ -24,10 +24,8 @@ const appStore = useAppStore()
   </div>
 
   <alert-message v-if="appStore.serverError">
-    <template #title>
-      <h2>Server Error</h2>
-    </template>
-    <template #content>{{ appStore.serverError }}</template>
+    <template #title>There was a problem with that action</template>
+    {{ appStore.serverError }}
   </alert-message>
 </template>
 

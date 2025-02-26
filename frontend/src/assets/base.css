@@ -223,6 +223,8 @@ body {
     /* Button ternary foreground (light mode)  */
     --button-tertiary-fg: var(--colors-gray-light-mode-500);
     --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
+    --button-quinary-fg: var(--colors-gray-light-mode-400);
+    --button-quinary-fg_hover: var(--colors-gray-light-mode-500);
 
     --icon-color-default: var(--colors-gray-light-mode-950);
 
@@ -336,6 +338,9 @@ html.dark-mode {
     /* Button ternary foreground (dark mode)  */
     --button-tertiary-fg: var(--colors-gray-dark-mode-400);
     --button-tertiary-fg_hover: var(--colors-gray-dark-mode-200);
+
+    --button-quinary-fg: var(--colors-gray-light-mode-500);
+    --button-quinary-fg_hover: var(--colors-gray-dark-mode-400);
 
     --icon-color-default: var(--colors-gray-dark-mode-25);
 
