@@ -97,6 +97,14 @@ nav {
   &.active {
     background: var(--Colors-Background-bg-active);
   }
+
+  &:focus {
+    /* Styles applied when the anchor element is focused */
+    /*border: 0.2rem solid var(--Colors-Border-border-brand);*/
+    outline: 0.2rem solid var(--Colors-Border-border-brand);
+    /*outline: none;*/
+    /*color: var(--Colors-Text-text-primary-900);*/
+  }
 }
 
 </style>

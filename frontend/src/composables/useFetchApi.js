@@ -12,6 +12,7 @@ export const useFetchApi = () => {
     options: {
       updateDataOnError: true, // Required to ensure data returns the error JSON from backend
       async onFetchError(response) {
+        console.log(response.data)
         return response
       }
     },
