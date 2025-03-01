@@ -149,7 +149,7 @@ const slots = useSlots()
 
 .alert-text {
   @include text-styles.text-sm-regular;
-  color: var(--Colors-Text-text-primary-900);
+  color: var(--Colors-Text-text-tertiary-600);
 }
 
 .alert-content {
