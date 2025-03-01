@@ -2,11 +2,9 @@
 import AppHeader from '@/components/Layout/AppHeader.vue'
 import PostList from '@/components/Content/PostList.vue'
 import HeroSection from '@/components/Content/HeroSection.vue'
-/*import HorizontalTabs from '@/components/Layout/HorizontalTabs.vue'*/
-import SideBar from '@/components/Layout/SideBar.vue'
-
 import { useAppStore } from '@/stores/appStore.js'
 import AlertMessage from '@/components/UI/AlertMessage.vue'
+import CategoryTabs from '@/components/Layout/CategoryTabs.vue'
 
 const appStore = useAppStore()
 </script>
@@ -18,7 +16,7 @@ const appStore = useAppStore()
   </div>
   <div class="section posts">
     <div class="section-posts">
-      <side-bar class="sidebar" />
+      <category-tabs class="category-filter"/>
       <post-list />
     </div>
   </div>
@@ -51,14 +49,26 @@ const appStore = useAppStore()
 
 .section-posts {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--spacing-7xl);
+  gap: var(--spacing-3xl);
   align-self: stretch;
 }
 
-.sidebar {
+.category-filter {
+  width: 100%;
+  overflow-x: auto;
   position: sticky;
-  top: 7.2rem;
+  top: 4.9rem;
+  padding-block: 1rem;
+  background-color: var(--Colors-Background-bg-primary);
 }
+
+@media screen and (max-width: 768px) {
+  .section-posts{
+    flex-direction: column;
+  }
+}
+
 </style>

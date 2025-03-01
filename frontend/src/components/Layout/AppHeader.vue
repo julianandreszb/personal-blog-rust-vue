@@ -42,6 +42,7 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   margin-inline: var(--spacing-3xl);
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .navbar {

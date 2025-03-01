@@ -3,7 +3,7 @@
 
 <template>
   <nav>
-    <ul class="horizontal-tabs">
+    <ul class="category-tabs">
       <li class="tab active">
         <router-link to="/" class="nav-link">View all</router-link>
       </li>
@@ -28,7 +28,7 @@
 
 <style lang="scss" scoped>
 @use '../../assets/text-styles' as text-styles;
-.horizontal-tabs {
+.category-tabs {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
@@ -36,6 +36,7 @@
   border: 1px solid var(--Colors-Border-border-secondary);
   background: var(--Colors-Background-bg-secondary_alt);
   list-style: none;
+  width: max-content;
 }
 
 .tab {
