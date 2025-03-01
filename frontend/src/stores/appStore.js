@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', () => {
   const apiEntryPoint = ref(null)
-  const serverError = ref("Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.")
+  const serverError = ref()
 
   function setApiEntryPoint(newEntryPoint) {
     apiEntryPoint.value = newEntryPoint
