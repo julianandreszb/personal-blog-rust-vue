@@ -57,7 +57,6 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   font-weight: bold;
   z-index: 20; /* Higher z-index than .nav-links */
   position: relative; /* Needed for z-index to work */
-  margin-inline-start: var(--spacing-3xl);
 }
 
 .brand-link {
@@ -130,6 +129,10 @@ import DarkModeToggle from '@/components/UI/DarkModeToggle.vue'
   
   .app-header {
     margin-inline: 0;
+  }
+
+  .navbar-brand {
+    margin-inline-start: var(--spacing-3xl);
   }
   
   .hamburger-menu {
