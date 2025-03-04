@@ -1,12 +1,47 @@
 <script setup>
+import { onMounted, ref, watchEffect } from 'vue'
 import AppHeader from '@/components/Layout/AppHeader.vue'
 import PostList from '@/components/Content/PostList.vue'
 import HeroSection from '@/components/Content/HeroSection.vue'
-import { useAppStore } from '@/stores/appStore.js'
 import AlertMessage from '@/components/UI/AlertMessage.vue'
 import CategoryTabs from '@/components/Layout/CategoryTabs.vue'
+import { useAppStore } from '@/stores/appStore.js'
+import { usePosts } from '@/composables/useBlogApi.js'
 
 const appStore = useAppStore()
+const { fetchPosts } = usePosts()
+const isFetchingPosts = ref(false)
+const posts = ref([])
+const categories = ref(new Set())
+
+function toggleCategory(category) {
+  console.log(category)
+  category.active = !category.active
+}
+
+watchEffect(() => {
+  const categoriesSet = new Set()
+  posts.value.forEach((post) => {
+    post.categories.forEach(category => categoriesSet.add(category))
+  })
+  categories.value = categoriesSet
+})
+onMounted(async () => {
+  const { isFetching, data, onFetchError, onFetchResponse } = fetchPosts()
+
+  watchEffect(async () => {
+    isFetchingPosts.value = isFetching.value
+  })
+  onFetchError((error) => {
+    // TODO: Show error using a toast or alert message
+    console.log(error)
+    posts.value = []
+  })
+
+  onFetchResponse(async (response) => {
+    posts.value = data.value
+  })
+})
 </script>
 
 <template>
@@ -16,8 +51,8 @@ const appStore = useAppStore()
   </div>
   <div class="section posts">
     <div class="section-posts">
-      <category-tabs class="category-filter"/>
-      <post-list />
+      <category-tabs :categories="categories"  class="category-filter" @category-clicked="toggleCategory" />
+      <post-list :posts="posts" :is-fetching-posts="isFetchingPosts" />
     </div>
   </div>
 
@@ -63,12 +98,13 @@ const appStore = useAppStore()
   top: 4.9rem;
   padding-block: 1rem;
   background-color: var(--Colors-Background-bg-primary);
+  scrollbar-color: var(--Colors-Background-bg-brand-solid) white;
+  scrollbar-width: thin;
 }
 
 @media screen and (max-width: 768px) {
-  .section-posts{
+  .section-posts {
     flex-direction: column;
   }
 }
-
 </style>
