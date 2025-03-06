@@ -1815,6 +1815,7 @@ dependencies = [
  "fake",
  "rand 0.9.0",
  "sea-orm",
+ "serde",
  "tokio",
  "tower",
  "tower-http",

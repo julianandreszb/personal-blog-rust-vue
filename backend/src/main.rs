@@ -8,13 +8,15 @@ use entity::post::PostApiResponse;
 use entity::post::PostPartial;
 use entity::post_category;
 use entity::post_tag;
-use sea_orm::prelude::DateTime;
-use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, FromQueryResult, JoinType, QuerySelect};
+use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, QueryOrder, QuerySelect};
 use std::collections::HashMap;
 use std::net::SocketAddr;
+use axum::response::IntoResponse;
 use tower_http::{cors::CorsLayer, services::ServeDir, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 use entity::tag::TagWithName;
+use serde::Serialize;
+use chrono::{DateTime, Utc, NaiveDateTime, Datelike};
 
 #[tokio::main]
 async fn main() {
@@ -126,7 +128,7 @@ async fn serve(app: Router, port: u16) {
 
 async fn get_posts(
     state: State<AppState>,
-) -> Result<Json<Vec<PostApiResponse>>, (StatusCode, String)> {
+) -> Result<Json<Vec<PostApiResponse>>, ErrorResponse> {
 
     //region Fetch all posts, categories, and tags
     // 1. Fetch all posts (id and title)
@@ -138,34 +140,40 @@ async fn get_posts(
         .column(post::Column::FeaturedImage)
         .column(post::Column::UpdatedAt)
         .column(post::Column::Excerpt)
+        .order_by_desc(post::Column::UpdatedAt)
         .into_model::<PostPartial>()
         .all(&state.conn)
         .await
-        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        .map_err(|err| ErrorResponse { error: err.to_string() })?;
+        // .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
     // 2. Fetch post-category relationships
     let post_categories = post_category::Entity::find()
         .all(&state.conn)
         .await
-        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 3. Fetch post-tag relationships
     let post_tags = post_tag::Entity::find()
         .all(&state.conn)
         .await
-        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 4. Fetch all categories
     let categories = category::Entity::find()
         .all(&state.conn)
         .await
-        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 5. Fetch all tags
     let tags = tag::Entity::find()
         .all(&state.conn)
         .await
-        .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+        .map_err(|err| ErrorResponse { error: err.to_string() })?;
     //endregion
 
     //region Create HashMaps for efficient lookups
@@ -223,7 +231,7 @@ async fn get_posts(
             title: post.title,
             slug: post.slug,
             featured_image: post.featured_image,
-            updated_at: post.updated_at,
+            updated_at: format_date(post.updated_at),
             excerpt: post.excerpt,
             categories,
             tags,
@@ -232,6 +240,13 @@ async fn get_posts(
     //endregion
 
     Ok(Json(result))
+}
+
+fn format_date(date: Option<NaiveDateTime>) -> String {
+    match date {
+        Some(d) => d.format("%d %b %Y").to_string(),
+        None => String::from(""),
+    }
 }
 
 async fn get_post_by_id(
@@ -254,4 +269,16 @@ async fn get_post_by_id(
 #[derive(Clone)]
 struct AppState {
     conn: DatabaseConnection,
+}
+
+#[derive(Serialize)]
+struct ErrorResponse {
+    error: String,
+}
+
+impl IntoResponse for ErrorResponse {
+    fn into_response(self) -> axum::response::Response {
+        let body = axum::Json(self);
+        (StatusCode::INTERNAL_SERVER_ERROR, body).into_response()
+    }
 }
