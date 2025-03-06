@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watchEffect } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import AppHeader from '@/components/Layout/AppHeader.vue'
 import PostList from '@/components/Content/PostList.vue'
 import HeroSection from '@/components/Content/HeroSection.vue'
@@ -14,18 +14,44 @@ const isFetchingPosts = ref(false)
 const posts = ref([])
 const categories = ref(new Set())
 
+const filteredPosts = computed(() => {
+  if (isViewAllCategoriesActive.value) {
+    return posts.value
+  }
+
+  return posts.value.filter((post) => {
+    // Check if any of the post's categories are in the selected categories set
+    return post?.categories.some((category) => categories.value.has(category) && category.active)
+  })
+})
+
+const isViewAllCategoriesActive = computed(() => {
+  for (const category of categories.value) {
+    if (category.active) {
+      return false
+    }
+  }
+  return true
+})
+
 function toggleCategory(category) {
-  console.log(category)
   category.active = !category.active
+}
+
+function showAllCategories() {
+  categories.value.forEach((category) => {
+    category.active = false
+  })
 }
 
 watchEffect(() => {
   const categoriesSet = new Set()
   posts.value.forEach((post) => {
-    post.categories.forEach(category => categoriesSet.add(category))
+    post.categories.forEach((category) => categoriesSet.add(category))
   })
   categories.value = categoriesSet
 })
+
 onMounted(async () => {
   const { isFetching, data, onFetchError, onFetchResponse } = fetchPosts()
 
@@ -38,7 +64,7 @@ onMounted(async () => {
     posts.value = []
   })
 
-  onFetchResponse(async (response) => {
+  onFetchResponse(async (_) => {
     posts.value = data.value
   })
 })
@@ -51,8 +77,13 @@ onMounted(async () => {
   </div>
   <div class="section posts">
     <div class="section-posts">
-      <category-tabs :categories="categories"  class="category-filter" @category-clicked="toggleCategory" />
-      <post-list :posts="posts" :is-fetching-posts="isFetchingPosts" />
+      <category-tabs
+        :categories="categories"
+        class="category-filter"
+        @category-clicked="toggleCategory"
+        @show-all-categories="showAllCategories"
+      />
+      <post-list :posts="filteredPosts" :is-fetching-posts="isFetchingPosts" />
     </div>
   </div>
 

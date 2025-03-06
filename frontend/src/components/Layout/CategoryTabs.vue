@@ -7,10 +7,10 @@ const props = defineProps({
     required: true,
   },
 })
-const emit = defineEmits(['category-clicked'])
+const emit = defineEmits(['category-clicked', 'show-all-categories'])
 const isViewAllCategoriesActive = computed(() => {
   for (const category of props.categories) {
-    if (category.active) {
+    if (category?.active) {
       return false
     }
   }
@@ -20,13 +20,17 @@ const isViewAllCategoriesActive = computed(() => {
 async function handleCategoryClicked(category) {
   emit('category-clicked', category)
 }
+
+function showAllCategories() {
+  emit('show-all-categories')
+}
 </script>
 
 <template>
   <nav>
     <ul class="category-tabs">
       <li :class="{ active: isViewAllCategoriesActive }" class="tab">
-        <span class="nav-link">View all</span>
+        <span class="nav-link" @click="showAllCategories">View all</span>
       </li>
       <li
         v-for="category in props.categories"
