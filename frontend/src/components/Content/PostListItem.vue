@@ -1,5 +1,5 @@
 <script setup>
-import BaseCard from '@/components/UI/BaseCard.vue' // Import the BaseCard component
+import BaseCard from '@/components/UI/BaseCard.vue'
 
 const props = defineProps({
   post: {
@@ -37,9 +37,9 @@ const props = defineProps({
         </div>
         <p class="card-supporting-text">{{ props.post.excerpt }}</p>
       </div>
-      <ul class="card-categories">
-        <li class="card-badge" v-for="category in props.post.categories" :key="category.id">
-          {{ category.name }}
+      <ul class="card-tags">
+        <li class="card-badge" v-for="tag in props.post.tags" :key="tag.id">
+          {{ tag.name }}
         </li>
       </ul>
     </section>
@@ -113,7 +113,7 @@ const props = defineProps({
   text-overflow: ellipsis;
 }
 
-.card-categories {
+.card-tags {
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
