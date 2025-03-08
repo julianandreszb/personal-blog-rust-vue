@@ -1,5 +1,6 @@
+use sea_orm::ColumnTrait;
+use sea_orm::QueryFilter;
 use axum::http::header::CONTENT_TYPE;
-use axum::http::StatusCode;
 use axum::{extract::Path, extract::State, routing::get, Json, Router};
 use entity::{category, tag};
 use entity::category::CategoryWithName;
@@ -16,7 +17,7 @@ use tower_http::{cors::CorsLayer, services::ServeDir, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 use entity::tag::TagWithName;
 use serde::Serialize;
-use chrono::{DateTime, Utc, NaiveDateTime, Datelike};
+use chrono::{NaiveDateTime, Datelike};
 
 #[tokio::main]
 async fn main() {
@@ -102,6 +103,7 @@ async fn serve_api() -> Router {
     let api_router = Router::new()
         .route("/posts", get(get_posts))
         .route("/posts/{id}", get(get_post_by_id))
+        .route("/posts/slug/{slug}", get(get_post_by_slug))
         .layer(
             CorsLayer::new()
                 .allow_origin(origins)
@@ -145,34 +147,29 @@ async fn get_posts(
         .all(&state.conn)
         .await
         .map_err(|err| ErrorResponse { error: err.to_string() })?;
-        // .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
 
     // 2. Fetch post-category relationships
     let post_categories = post_category::Entity::find()
         .all(&state.conn)
         .await
-        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
         .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 3. Fetch post-tag relationships
     let post_tags = post_tag::Entity::find()
         .all(&state.conn)
         .await
-        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
         .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 4. Fetch all categories
     let categories = category::Entity::find()
         .all(&state.conn)
         .await
-        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
         .map_err(|err| ErrorResponse { error: err.to_string() })?;
 
     // 5. Fetch all tags
     let tags = tag::Entity::find()
         .all(&state.conn)
         .await
-        //.map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
         .map_err(|err| ErrorResponse { error: err.to_string() })?;
     //endregion
 
@@ -266,6 +263,24 @@ async fn get_post_by_id(
     }
 }
 
+async fn get_post_by_slug(
+    state: State<AppState>, 
+    Path(slug): Path<String>
+) -> Result<Json<post::Model>, (axum::http::StatusCode, String)> {
+    match post::Entity::find().filter(post::Column::Slug.eq(slug)).one(&state.conn).await
+    {
+        Ok(Some(post)) => Ok(Json(post)),
+        Ok(None) => Err((
+            axum::http::StatusCode::NOT_FOUND,
+            "Post not found".to_string(),
+        )),
+        Err(err) => Err((
+            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+            err.to_string(),
+        )),
+    }
+}
+
 #[derive(Clone)]
 struct AppState {
     conn: DatabaseConnection,
@@ -279,6 +294,6 @@ struct ErrorResponse {
 impl IntoResponse for ErrorResponse {
     fn into_response(self) -> axum::response::Response {
         let body = axum::Json(self);
-        (StatusCode::INTERNAL_SERVER_ERROR, body).into_response()
+        (axum::http::StatusCode::INTERNAL_SERVER_ERROR, body).into_response()
     }
 }
