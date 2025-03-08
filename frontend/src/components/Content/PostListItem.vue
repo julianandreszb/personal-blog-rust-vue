@@ -1,12 +1,18 @@
 <script setup>
 import BaseCard from '@/components/UI/BaseCard.vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const props = defineProps({
   post: {
     type: Object,
     required: true,
   },
 })
+
+function goToPost(postSlug) {
+  router.push({ name: 'post', params: { slug: postSlug } })
+}
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const props = defineProps({
         <time class="card-date">{{ props.post.updated_at }}</time>
         <div class="card-heading-and-icon">
           <h1 class="card-heading-title">{{ props.post.title }}</h1>
-          <div class="icon-wrap">
+          <div class="icon-wrap" @click="goToPost(props.post.slug)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -99,6 +105,7 @@ const props = defineProps({
   padding-top: var(--spacing-xs, 4px);
   flex-direction: column;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .icon-wrap path {
