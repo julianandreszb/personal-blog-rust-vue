@@ -7,5 +7,8 @@ export const usePosts = () => {
     // return fetchApi(`/posts?page=${page}&limit=${limit}`, { immediate: false }).json()
     return fetchApi(`/posts`, { immediate: true }).json()
   }
-  return { fetchPosts }
+  const fetchPostBySlug = (slug) => {
+    return fetchApi(`/posts/slug/${slug}`, { immediate: true }).json()
+  }
+  return { fetchPosts, fetchPostBySlug }
 }
