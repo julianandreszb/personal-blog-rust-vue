@@ -12,12 +12,14 @@ use entity::post_tag;
 use sea_orm::{ConnectOptions, DatabaseConnection, EntityTrait, QueryOrder, QuerySelect};
 use std::collections::HashMap;
 use std::net::SocketAddr;
+use axum::http::StatusCode;
 use axum::response::IntoResponse;
 use tower_http::{cors::CorsLayer, services::ServeDir, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 use entity::tag::TagWithName;
 use serde::Serialize;
-use chrono::{NaiveDateTime, Datelike};
+use chrono::{NaiveDateTime};
+use serde_json::{json, Value};
 
 #[tokio::main]
 async fn main() {
@@ -264,22 +266,46 @@ async fn get_post_by_id(
 }
 
 async fn get_post_by_slug(
-    state: State<AppState>, 
-    Path(slug): Path<String>
-) -> Result<Json<post::Model>, (axum::http::StatusCode, String)> {
-    match post::Entity::find().filter(post::Column::Slug.eq(slug)).one(&state.conn).await
+    state: State<AppState>,
+    Path(slug): Path<String>,
+) -> Result<Json<Value>, (StatusCode, String)> {
+    match post::Entity::find()
+        .filter(post::Column::Slug.eq(slug))
+        .one(&state.conn)
+        .await
     {
-        Ok(Some(post)) => Ok(Json(post)),
-        Ok(None) => Err((
-            axum::http::StatusCode::NOT_FOUND,
-            "Post not found".to_string(),
-        )),
-        Err(err) => Err((
-            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
-            err.to_string(),
-        )),
+        Ok(Some(post)) => {
+            let post_json = json!({
+                "id": post.id,
+                "title": post.title,
+                "slug": post.slug,
+                "updated_at": format_date(post.updated_at),
+            });
+            Ok(Json(post_json))
+        }
+        Ok(None) => Err((StatusCode::NOT_FOUND, "Post not found".to_string())),
+        Err(err) => Err((StatusCode::INTERNAL_SERVER_ERROR, err.to_string())),
     }
 }
+
+
+// async fn get_post_by_slug(
+//     state: State<AppState>, 
+//     Path(slug): Path<String>
+// ) -> Result<Json<post::Model>, (axum::http::StatusCode, String)> {
+//     match post::Entity::find().filter(post::Column::Slug.eq(slug)).one(&state.conn).await
+//     {
+//         Ok(Some(post)) => Ok(Json(post)),
+//         Ok(None) => Err((
+//             axum::http::StatusCode::NOT_FOUND,
+//             "Post not found".to_string(),
+//         )),
+//         Err(err) => Err((
+//             axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+//             err.to_string(),
+//         )),
+//     }
+// }
 
 #[derive(Clone)]
 struct AppState {
