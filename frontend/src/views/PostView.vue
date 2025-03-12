@@ -33,8 +33,25 @@ onMounted(() => {
 
 <template>
   <div class="section post">
+    <article>
+      <section class="header-section">
+        <div class="container" >
+          <div class="heading-and-supporting-text" >
+            <div class="heading-and-subheading" >
+               <time class="date" >{{ post.updated_at }}</time>
+              <h1>{{ post.title }}</h1>
+            </div>
+          </div>
+          
+        </div>
+        
+      </section>
+      
+    </article>
+    
     <h1>Slug: {{ props.slug }}</h1>
     <pre>{{ post }}</pre>
+    
   </div>
 </template>
 
