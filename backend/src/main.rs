@@ -1,4 +1,4 @@
-use sea_orm::ColumnTrait;
+use sea_orm::{ColumnTrait};
 use sea_orm::QueryFilter;
 use axum::http::header::CONTENT_TYPE;
 use axum::{extract::Path, extract::State, routing::get, Json, Router};
@@ -209,6 +209,8 @@ async fn get_posts(
     //region Build the final result
     let mut result: Vec<PostApiResponse> = Vec::with_capacity(posts.len());
     for post in posts {
+        
+        //region Get categories by post id
         let categories = category_map
             .get(&post.id)
             .unwrap_or(&Vec::new())
@@ -216,7 +218,9 @@ async fn get_posts(
             .filter_map(|category_id| category_by_id.get(category_id))
             .cloned()
             .collect();
+        //endregion
 
+        //region Get tags by post id
         let tags = tag_map
             .get(&post.id)
             .unwrap_or(&Vec::new())
@@ -224,7 +228,9 @@ async fn get_posts(
             .filter_map(|tag_id| tag_by_id.get(tag_id))
             .cloned()
             .collect();
+        //endregion
 
+        //region push posts to result
         result.push(PostApiResponse {
             id: post.id,
             title: post.title,
@@ -235,6 +241,7 @@ async fn get_posts(
             categories,
             tags,
         });
+        //endregion
     }
     //endregion
 
@@ -251,15 +258,15 @@ fn format_date(date: Option<NaiveDateTime>) -> String {
 async fn get_post_by_id(
     state: State<AppState>,
     Path(id): Path<i32>,
-) -> Result<Json<post::Model>, (axum::http::StatusCode, String)> {
+) -> Result<Json<post::Model>, (StatusCode, String)> {
     match post::Entity::find_by_id(id).one(&state.conn).await {
         Ok(Some(post)) => Ok(Json(post)),
         Ok(None) => Err((
-            axum::http::StatusCode::NOT_FOUND,
+            StatusCode::NOT_FOUND,
             "Post not found".to_string(),
         )),
         Err(err) => Err((
-            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+            StatusCode::INTERNAL_SERVER_ERROR,
             err.to_string(),
         )),
     }
@@ -275,11 +282,31 @@ async fn get_post_by_slug(
         .await
     {
         Ok(Some(post)) => {
+            
+            // Find all tags for the post (post_tag > tag)
+            let tag_models = post_tag::Entity::find()
+                .filter(post_tag::Column::PostId.eq(post.id))
+                .find_with_related(tag::Entity)
+                .all(&state.conn)
+                .await
+                .map_err(|err| (StatusCode::INTERNAL_SERVER_ERROR, err.to_string()))?;
+
+            // Format tags as [{ id, name }, ...]
+            let tags: Vec<TagWithName> = tag_models.into_iter()
+                .flat_map(|(_, related_tags)| related_tags)
+                .map(|tag| TagWithName {
+                    id: tag.id,
+                    name: tag.name,
+                })
+                .collect();
+            
             let post_json = json!({
                 "id": post.id,
                 "title": post.title,
                 "slug": post.slug,
                 "updated_at": format_date(post.updated_at),
+                "excerpt": post.excerpt,
+                "tags": tags,
             });
             Ok(Json(post_json))
         }
@@ -287,25 +314,6 @@ async fn get_post_by_slug(
         Err(err) => Err((StatusCode::INTERNAL_SERVER_ERROR, err.to_string())),
     }
 }
-
-
-// async fn get_post_by_slug(
-//     state: State<AppState>, 
-//     Path(slug): Path<String>
-// ) -> Result<Json<post::Model>, (axum::http::StatusCode, String)> {
-//     match post::Entity::find().filter(post::Column::Slug.eq(slug)).one(&state.conn).await
-//     {
-//         Ok(Some(post)) => Ok(Json(post)),
-//         Ok(None) => Err((
-//             axum::http::StatusCode::NOT_FOUND,
-//             "Post not found".to_string(),
-//         )),
-//         Err(err) => Err((
-//             axum::http::StatusCode::INTERNAL_SERVER_ERROR,
-//             err.to_string(),
-//         )),
-//     }
-// }
 
 #[derive(Clone)]
 struct AppState {
@@ -319,7 +327,7 @@ struct ErrorResponse {
 
 impl IntoResponse for ErrorResponse {
     fn into_response(self) -> axum::response::Response {
-        let body = axum::Json(self);
-        (axum::http::StatusCode::INTERNAL_SERVER_ERROR, body).into_response()
+        let body = Json(self);
+        (StatusCode::INTERNAL_SERVER_ERROR, body).into_response()
     }
 }
