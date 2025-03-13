@@ -301,12 +301,13 @@ async fn get_post_by_slug(
                 .collect();
             
             let post_json = json!({
-                "id": post.id,
-                "title": post.title,
-                "slug": post.slug,
-                "updated_at": format_date(post.updated_at),
                 "excerpt": post.excerpt,
+                "featured_image": post.featured_image,
+                "id": post.id,
+                "slug": post.slug,
                 "tags": tags,
+                "title": post.title,
+                "updated_at": format_date(post.updated_at),
             });
             Ok(Json(post_json))
         }
