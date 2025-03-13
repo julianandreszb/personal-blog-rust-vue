@@ -119,30 +119,4 @@ function goToPost(postSlug) {
   color: var(--Colors-Text-text-tertiary-600);
   text-overflow: ellipsis;
 }
-
-.card-tags {
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 0.8rem var(--spacing-md);
-  align-self: stretch;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.card-badge {
-  @include text-styles.text-sm-medium;
-  /* Layout */
-  display: flex;
-  padding: var(--spacing-xxs, 2px) 10px;
-  align-items: center;
-
-  /* Style */
-  border-radius: var(--radius-full);
-  border: 1px solid var(--Component-colors-Utility-Brand-utility-brand-200);
-  background: var(--Component-colors-Utility-Brand-utility-brand-50);
-
-  color: var(--Component-colors-Utility-Brand-utility-brand-700);
-  text-align: center;
-}
 </style>
