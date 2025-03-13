@@ -32,38 +32,34 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="section post">
     <article>
       <section class="header-section">
         <div class="container">
           <div class="heading-and-supporting-text">
             <div class="heading-and-subheading">
               <time class="published">Last updated on {{ post.updated_at }}</time>
-              <h1 class="heading-title" >{{ post.title }}</h1>
+              <h1 class="heading-title">{{ post.title }}</h1>
             </div>
-            <p class="supporting-text" >{{ post.excerpt }}</p>
+            <p class="supporting-text">{{ post.excerpt }}</p>
           </div>
           <div>
             <ul class="card-tags">
               <li class="card-badge" v-for="tag in post.tags" :key="tag.id">
                 {{ tag.name }}
               </li>
-              <li class="card-badge" v-for="tag in post.tags" :key="tag.id">
-                {{ tag.name }}
-              </li>
             </ul>
           </div>
         </div>
+        <div class="container">
+          <img class="featured-image" :src="post.featured_image" alt="" />
+        </div>
       </section>
     </article>
-
-    <h1>Slug: {{ props.slug }}</h1>
-    <pre>{{ post }}</pre>
-  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/text-styles' as text-styles;
+
 .section {
   .post {
     align-items: normal;
@@ -107,7 +103,6 @@ onMounted(() => {
   @include text-styles.text-sm-semibold;
   color: var(--Colors-Text-text-brand-secondary-700);
   text-align: center;
-
 }
 
 .heading-title {
@@ -120,5 +115,9 @@ onMounted(() => {
   @include text-styles.text-xl-regular;
   color: var(--Colors-Text-text-tertiary-600);
   text-align: center;
+}
+
+.featured-image {
+  width: 100%;
 }
 </style>
