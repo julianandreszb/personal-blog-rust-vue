@@ -120,7 +120,11 @@ body {
     
     --container-max-width-desktop: 1280px;
 
+    
     --width-xl: 76.8rem;
+    --width-2xl: 102.4rem;
+
+    --paragraph-max-width: 72rem;
 }
 
 /* Typography */
@@ -185,6 +189,7 @@ body {
     --Colors-Text-text-tertiary-600: var(--colors-gray-light-mode-600);
     --Colors-Text-text-quaternary-500: var(--colors-gray-light-mode-500);
     --Colors-Text-text-white: var(--colors-base-white);
+    --Colors-Text-text-brand-tertiary-600: var(--colors-brand-600);
 
     /* Text brand secondary (light mode) */
     --Colors-Text-text-brand-secondary-700: var(--colors-brand-700);
@@ -219,9 +224,10 @@ body {
     --button-secondary-color-border: var(--colors-brand-300);
     --button-secondary-color-border_hover: var(--colors-brand-300);
 
+    /*--button-tertiary-fg*/
 
     /* Button ternary foreground (light mode)  */
-    --button-tertiary-fg: var(--colors-gray-light-mode-500);
+    --button-tertiary-fg: var(--colors-gray-light-mode-600);
     --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
     --button-quinary-fg: var(--colors-gray-light-mode-400);
     --button-quinary-fg_hover: var(--colors-gray-light-mode-500);
@@ -247,12 +253,6 @@ body {
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 }
-
-/*@media (prefers-color-scheme: dark) {
-    :root {
-        ...dark mode variables here
-    }
-}*/
 
 html.dark-mode {
     /* Background (dark mode) */
@@ -301,6 +301,8 @@ html.dark-mode {
     --Colors-Text-text-tertiary-600: var(--colors-gray-dark-mode-400);
     --Colors-Text-text-quaternary-500: var(--colors-gray-dark-mode-400);
     --Colors-Text-text-white: var(--colors-base-white);
+    --Colors-Text-text-brand-tertiary-600: var(--colors-gray-dark-mode-400);
+    
 
     /* Text brand secondary (light mode) */
     --Colors-Text-text-brand-secondary-700: var(--colors-gray-dark-mode-300);
