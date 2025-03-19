@@ -144,6 +144,7 @@ async fn get_posts(
         .column(post::Column::FeaturedImage)
         .column(post::Column::UpdatedAt)
         .column(post::Column::Excerpt)
+        .column(post::Column::ContentMdId)
         .order_by_desc(post::Column::UpdatedAt)
         .into_model::<PostPartial>()
         .all(&state.conn)
