@@ -32,20 +32,17 @@ impl MigrationTrait for Migration {
                             .not_null()
                             .string_len(255)
                             .unique_key(),
-                    )
-                    .col(
-                        ColumnDef::new(Post::Content)
-                            .text()
-                            .not_null(),
                     ).col(
                         ColumnDef::new(Post::Excerpt)
                             .text()
                             .not_null(),
                     )
                     .col(
-                        ColumnDef::new(Post::ContentType)
-                            .enumeration(Alias::new("content_type"), ContentType::iter())
-                            .default("markdown"),
+                        ColumnDef::new(Post::ContentMdId)
+                            .string()
+                            .not_null()
+                            .string_len(255)
+                            .unique_key(),
                     )
                     .col(
                         ColumnDef::new(Post::Language)
@@ -90,9 +87,8 @@ pub(crate) enum Post {
     Id,
     Title,
     Slug,
-    Content,
     Excerpt,
-    ContentType,
+    ContentMdId,
     Language,
     FeaturedImage,
     Status,

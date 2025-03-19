@@ -1,5 +1,17 @@
 # Running Migrator CLI
 
+In case of remove/add new fields in the models
+- Modify the model by adding/removing fields. e.g `backend/entity/src/post.rs`
+- Modify the `migration/src/{file}.rx` file(s) manually to add/remove fields in the models.
+- Drop the database table (e.g `posts`) and reapply all migrations
+  ```sh
+  cd migration
+  ```
+  ```sh
+  cargo run -- fresh
+  ```
+
+---
 - Generate a new migration file
     ```sh
     cargo run -- generate MIGRATION_NAME
