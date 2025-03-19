@@ -32,6 +32,11 @@ This will start the server, and you can access it at `http://localhost:3000`.
 - `src/` - Contains the source code for the project.
 - `Cargo.toml` - Contains the project dependencies and metadata.
 
+## Update dependencies
+- Delete the `Cargo.lock` file
+- Run `cargo build` or `cargo check`
+
+
 ## License
 
 This project is licensed under the MIT License.
